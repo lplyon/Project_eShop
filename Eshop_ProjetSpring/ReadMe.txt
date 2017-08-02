@@ -19,5 +19,8 @@ DAO : Produit :
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
+	Mettre hb.auto=create en validate
 
 

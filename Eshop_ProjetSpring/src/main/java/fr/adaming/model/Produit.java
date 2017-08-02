@@ -3,6 +3,7 @@ package fr.adaming.model;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -27,6 +28,7 @@ public class Produit {
 	private String description;
 	private double prix;
 	private int quantite;
+	@Column(nullable = false, columnDefinition = "TINYINT", length = 1)
 	private boolean selectionne;
 	private String photo;
 
