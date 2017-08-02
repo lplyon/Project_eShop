@@ -15,14 +15,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="produits")
+@Table(name = "produits")
 public class Produit {
 
 	// Attributs
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idProduit;
 	private String designation;
 	private String description;
@@ -30,23 +29,22 @@ public class Produit {
 	private int quantite;
 	private boolean selectionne;
 	private String photo;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "fk_categorie", referencedColumnName = "idCategorie")
 	private Categorie categorie;
-	
-	@OneToMany(mappedBy="produit", cascade=CascadeType.ALL)
+
+	@OneToMany(mappedBy = "produit", cascade = CascadeType.ALL)
 	private List<LigneCommande> lLignesCommandes;
 
-	
-	//Constructeur vide
+	// Constructeur vide
 	public Produit() {
 		super();
 	}
 
-	//contructeur avec id
+	// contructeur avec id
 	public Produit(Long idProduit, String designation, String description, double prix, int quantite,
-			boolean selectionne, String photo, Categorie categorie, List<LigneCommande> lLignesCommandes) {
+			boolean selectionne, String photo) {
 		super();
 		this.idProduit = idProduit;
 		this.designation = designation;
@@ -55,13 +53,11 @@ public class Produit {
 		this.quantite = quantite;
 		this.selectionne = selectionne;
 		this.photo = photo;
-		this.categorie = categorie;
-		this.lLignesCommandes = lLignesCommandes;
 	}
 
 	// Constructeur sans id
-	public Produit(String designation, String description, double prix, int quantite, boolean selectionne, String photo,
-			Categorie categorie, List<LigneCommande> lLignesCommandes) {
+	public Produit(String designation, String description, double prix, int quantite, boolean selectionne,
+			String photo) {
 		super();
 		this.designation = designation;
 		this.description = description;
@@ -69,13 +65,10 @@ public class Produit {
 		this.quantite = quantite;
 		this.selectionne = selectionne;
 		this.photo = photo;
-		this.categorie = categorie;
-		this.lLignesCommandes = lLignesCommandes;
 	}
 
-	
 	// GETTER - SETTER
-	
+
 	public Long getIdProduit() {
 		return idProduit;
 	}
@@ -147,8 +140,7 @@ public class Produit {
 	public void setlLignesCommandes(List<LigneCommande> lLignesCommandes) {
 		this.lLignesCommandes = lLignesCommandes;
 	}
-	
-	
+
 	// TO STRING
 	@Override
 	public String toString() {
@@ -159,10 +151,5 @@ public class Produit {
 				+ (categorie != null ? "categorie=" + categorie + ", " : "")
 				+ (lLignesCommandes != null ? "lLignesCommandes=" + lLignesCommandes : "") + "]";
 	}
-	
-	
-	
-	
-	
 
 }

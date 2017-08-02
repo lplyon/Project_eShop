@@ -11,27 +11,27 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="clients")
+@Table(name = "clients")
 public class Client {
 
 	// les attributs
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idClient;
 	private String nomClient;
 	private String adresse;
 	private String mail;
 	private String tel;
-	
-	@OneToMany(mappedBy="client", cascade=CascadeType.ALL)
+
+	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
 	private List<Commande> lcommandes;
 
-	//Constructeur vide
+	// Constructeur vide
 	public Client() {
 		super();
 	}
 
-	//Constructeur sans id
+	// Constructeur sans id
 	public Client(String nomClient, String adresse, String mail, String tel) {
 		super();
 		this.nomClient = nomClient;
@@ -40,7 +40,7 @@ public class Client {
 		this.tel = tel;
 	}
 
-	//Constructeur avec id
+	// Constructeur avec id
 	public Client(Long idClient, String nomClient, String adresse, String mail, String tel) {
 		super();
 		this.idClient = idClient;
@@ -51,7 +51,7 @@ public class Client {
 	}
 
 	// GETTER - SETTER
-	
+
 	public Long getIdClient() {
 		return idClient;
 	}
@@ -90,6 +90,14 @@ public class Client {
 
 	public void setTel(String tel) {
 		this.tel = tel;
+	}
+
+	public List<Commande> getLcommandes() {
+		return lcommandes;
+	}
+
+	public void setLcommandes(List<Commande> lcommandes) {
+		this.lcommandes = lcommandes;
 	}
 
 	// TO STRING

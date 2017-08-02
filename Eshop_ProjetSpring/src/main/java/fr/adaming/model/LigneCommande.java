@@ -9,50 +9,44 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="lignesCommandes")
+@Table(name = "lignesCommandes")
 public class LigneCommande {
 
 	// les attributs
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idLigneCommande;
 	private int quantite;
 	private double prix;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "fk_produit", referencedColumnName = "idProduit")
 	private Produit produit;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "fk_commande", referencedColumnName = "idCommande")
 	private Commande commande;
 
-	//Constructeur vide
+	// Constructeur vide
 	public LigneCommande() {
 		super();
 	}
-	
 
 	// Constructeur avec id
-	public LigneCommande(int idLigneCommande, int quantite, double prix, Produit produit, Commande commande) {
+	public LigneCommande(int idLigneCommande, int quantite, double prix) {
 		super();
 		this.idLigneCommande = idLigneCommande;
 		this.quantite = quantite;
 		this.prix = prix;
-		this.produit = produit;
-		this.commande = commande;
 	}
 
-
 	// Constructeur sans id
-	public LigneCommande(int quantite, double prix, Produit produit, Commande commande) {
+	public LigneCommande(int quantite, double prix) {
 		super();
 		this.quantite = quantite;
 		this.prix = prix;
-		this.produit = produit;
-		this.commande = commande;
 	}
-	
+
 	// GETTER - SETTER
 
 	public int getIdLigneCommande() {
@@ -103,7 +97,4 @@ public class LigneCommande {
 				+ (commande != null ? "commande=" + commande : "") + "]";
 	}
 
-	
-	
-	
 }

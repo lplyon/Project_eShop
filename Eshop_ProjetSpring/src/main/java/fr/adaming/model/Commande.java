@@ -14,42 +14,40 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="commandes")
+@Table(name = "commandes")
 public class Commande {
 
 	// les attributs
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCommande;
 	private Date dateCommande;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "fk_client", referencedColumnName = "idClient")
 	private Client client;
-	
-	@OneToMany(mappedBy="commande", cascade=CascadeType.ALL)
+
+	@OneToMany(mappedBy = "commande", cascade = CascadeType.ALL)
 	private List<LigneCommande> lLignesCommandes;
 
-	//Constructeur vide
+	// Constructeur vide
 	public Commande() {
 		super();
 	}
 
 	// Constructeur avec id
-	public Commande(Long idCommande, Date dateCommande, Client client, List<LigneCommande> lLignesCommandes) {
+	public Commande(Long idCommande, Date dateCommande, Client client) {
 		super();
 		this.idCommande = idCommande;
 		this.dateCommande = dateCommande;
-		this.client = client;
-		this.lLignesCommandes = lLignesCommandes;
+
 	}
 
 	// Constructeur sans id
-	public Commande(Date dateCommande, Client client, List<LigneCommande> lLignesCommandes) {
+	public Commande(Date dateCommande) {
 		super();
 		this.dateCommande = dateCommande;
-		this.client = client;
-		this.lLignesCommandes = lLignesCommandes;
+
 	}
 
 	// GETTER - SETTER
@@ -85,7 +83,6 @@ public class Commande {
 		this.lLignesCommandes = lLignesCommandes;
 	}
 
-	
 	// TO STRING
 	@Override
 	public String toString() {
@@ -94,9 +91,5 @@ public class Commande {
 				+ (client != null ? "client=" + client + ", " : "")
 				+ (lLignesCommandes != null ? "lLignesCommandes=" + lLignesCommandes : "") + "]";
 	}
-	
-	
-	
-	
 
 }

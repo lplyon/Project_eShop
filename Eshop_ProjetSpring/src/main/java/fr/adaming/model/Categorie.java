@@ -11,26 +11,26 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="categories")
+@Table(name = "categories")
 public class Categorie {
 
 	// les attributs
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCategorie;
 	private String nomCategorie;
 	private byte photo;
 	private String description;
-	
-	@OneToMany(mappedBy="categorie", cascade=CascadeType.ALL)
+
+	@OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL)
 	private List<Produit> lProduits;
 
-	//Constructeur vide
+	// Constructeur vide
 	public Categorie() {
 		super();
 	}
 
-	//Constructeur avec id
+	// Constructeur avec id
 	public Categorie(Long idCategorie, String nomCategorie, byte photo, String description) {
 		super();
 		this.idCategorie = idCategorie;
@@ -46,7 +46,7 @@ public class Categorie {
 		this.photo = photo;
 		this.description = description;
 	}
-	
+
 	// GETTER - SETTER
 
 	public Long getIdCategorie() {
@@ -80,7 +80,15 @@ public class Categorie {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
+	public List<Produit> getlProduits() {
+		return lProduits;
+	}
+
+	public void setlProduits(List<Produit> lProduits) {
+		this.lProduits = lProduits;
+	}
+
 	// TO STRING
 
 	@Override
