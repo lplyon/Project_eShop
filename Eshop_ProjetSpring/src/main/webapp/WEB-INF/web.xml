@@ -3,6 +3,7 @@
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
+	
 	<display-name>Eshop_ProjetSpring</display-name>
 	<!-- Spécifier le chemin du fichier de configuration du contexte Spring -->
 	<context-param>
@@ -34,9 +35,6 @@
 		<param-name>javax.faces.PROJECT_STAGE</param-name>
 		<param-value>Development</param-value>
 	</context-param>
-
-
-
 
 	<!-- Page accueil -->
 	<welcome-file-list>
