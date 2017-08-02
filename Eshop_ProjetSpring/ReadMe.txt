@@ -12,4 +12,12 @@ ETAPES
  -faire view
 
 
+TO DO List
+DAO : Produit :
+	@Override
+	public List<Produit> consulterSelection(int idClient) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
