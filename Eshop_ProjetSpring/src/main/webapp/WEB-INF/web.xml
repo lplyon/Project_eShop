@@ -4,7 +4,7 @@
 	<!-- Spécifier le chemin du fichier de configuration du contexte Spring -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/application-contexte.xml</param-value>
+		<param-value>/WEB-INF/application-context.xml</param-value>
 	</context-param>
 
 	<!-- Optionnel : déclaration d'un listener/écouteur pour le rechargement 
