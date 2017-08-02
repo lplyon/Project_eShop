@@ -7,6 +7,9 @@ le application-context.xml
 ETAPES 
  -faire model + ajout des annotations + jointures
  -faire DAO
+ -faire Service
+ -faire web.xml
+ -faire view
 
 
 
