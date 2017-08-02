@@ -3,6 +3,7 @@ package fr.adaming.managedBeans;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
@@ -14,9 +15,6 @@ import fr.adaming.service.IProduitService;
 @RequestScoped
 public class ProduitManagedBean implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	// Attributs de la vue
@@ -31,6 +29,7 @@ public class ProduitManagedBean implements Serializable {
 		this.produit = new Produit();
 	}
 
+	@PostConstruct
 	public void init() {
 		this.lProduits = produitService.consulterTout();
 	}
@@ -55,15 +54,15 @@ public class ProduitManagedBean implements Serializable {
 	public void setlProduits(List<Produit> lProduits) {
 		this.lProduits = lProduits;
 	}
-	
+
 	// Methodes Metiers
-	public String ajouterProduit(){
+	public String ajouterProduit() {
 		produitService.ajouter(this.produit);
-		
-		//Rechargement de la liste
+
+		// Rechargement de la liste
 		this.lProduits = produitService.consulterTout();
 		return "gestionProduits";
-		
+
 	}
 
 }

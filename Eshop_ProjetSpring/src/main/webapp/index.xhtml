@@ -17,9 +17,23 @@
 	</ui:insert>
 
 	<p:separator />
-	
-	
-	
-	
+
+	<p:dataTable var="produits" value="#{pMB.lProduits}">
+		<p:column headerText="Id">
+			<h:outputText value="#{pMB.produit.designation}" />
+		</p:column>
+
+		<p:column headerText="Nom">
+			<h:outputText value="#{pMB.produit.description}" />
+		</p:column>
+
+		<p:column headerText="Prenom">
+			<h:outputText value="#{pMB.produit.prix}" />
+		</p:column>
+	</p:dataTable>
+
+
+
+
 </h:body>
 </html>

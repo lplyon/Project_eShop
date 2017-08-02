@@ -34,16 +34,31 @@
 			<p:inputText id="idQtt" value="#{pMB.produit.quantite}" />
 
 			<p:outputLabel for="idSelectionne" value="Selectionne :" />
-			<p:inputText id="idQtt" value="#{pMB.produit.selectionne}" />
+			<p:inputText id="idSelectionne" value="#{pMB.produit.selectionne}" />
 
 			<p:outputLabel for="idPhoto" value="URL Photo :" />
 			<p:inputText id="idPhoto" value="#{pMB.produit.photo}" />
 
 		</h:panelGrid>
-		
-					<p:commandButton value="Ajout" action="#{pMB.ajouterProduit}" update="@all" />
-						
+
+		<p:commandButton value="Ajout" action="#{pMB.ajouterProduit}"
+			update="@all" />
+
 	</h:form>
+
+	<p:dataTable var="prod" value="#{pMB.lProduits}">
+		<p:column headerText="Id">
+			<h:outputText value="#{prod.designation}" />
+		</p:column>
+
+		<p:column headerText="Nom">
+			<h:outputText value="#{prod.description}" />
+		</p:column>
+
+		<p:column headerText="Prenom">
+			<h:outputText value="#{prod.prix}" />
+		</p:column>
+	</p:dataTable>
 
 
 
