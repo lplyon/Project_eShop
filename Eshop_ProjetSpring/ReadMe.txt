@@ -4,5 +4,9 @@ la configuration du projet web dynamique
 le .properties
 le application-context.xml
 
+ETAPES 
+ -faire model + ajout des annotations + jointures
+ -faire DAO
+
 
 
