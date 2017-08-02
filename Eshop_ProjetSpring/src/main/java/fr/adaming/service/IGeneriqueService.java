@@ -8,10 +8,10 @@ public interface IGeneriqueService<T> {
 
 	public List<T> consulterTout();
 
-	public T consulterParId(int id);
+	public T consulterParId(Long id);
 
 	public void modifier(T t);
 
-	public void supprimer(int id);
+	public void supprimer(Long id);
 
 }

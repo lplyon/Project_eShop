@@ -22,8 +22,8 @@ public class ProduitServiceImpl implements IProduitDao{
 	}
 
 	@Override
-	public void ajouter(Produit t) {
-		produitDao.ajouter(t);
+	public void ajouter(Produit produit) {
+		produitDao.ajouter(produit);
 	}
 
 	@Override
@@ -32,27 +32,27 @@ public class ProduitServiceImpl implements IProduitDao{
 	}
 
 	@Override
-	public Produit consulterParId(int id) {
+	public Produit consulterParId(Long id) {
 		return produitDao.consulterParId(id);
 	}
 
 	@Override
-	public void modifier(Produit t) {
-		produitDao.modifier(t);
+	public void modifier(Produit produit) {
+		produitDao.modifier(produit);
 	}
 
 	@Override
-	public void supprimer(int id) {
+	public void supprimer(Long id) {
 		produitDao.supprimer(id);
 	}
 
 	@Override
-	public List<Produit> consulterParCategorie(int idCategorie) {
+	public List<Produit> consulterParCategorie(Long idCategorie) {
 		return produitDao.consulterParCategorie(idCategorie);
 	}
 
 	@Override
-	public List<Produit> consulterSelection(int idClient) {
+	public List<Produit> consulterSelection(Long idClient) {
 		return produitDao.consulterSelection(idClient);
 	}
 

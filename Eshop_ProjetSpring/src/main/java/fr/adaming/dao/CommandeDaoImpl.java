@@ -46,7 +46,7 @@ public class CommandeDaoImpl implements IGeneriqueDao<Commande> {
 	}
 
 	@Override
-	public Commande consulterParId(int id) {
+	public Commande consulterParId(Long id) {
 		// Ouverture de la session (bus) avec la DB
 		Session s = sf.getCurrentSession();
 
@@ -65,7 +65,7 @@ public class CommandeDaoImpl implements IGeneriqueDao<Commande> {
 	}
 
 	@Override
-	public void supprimer(int id) {
+	public void supprimer(Long id) {
 		// Ouverture de la session (bus) avec la DB
 		Session s = sf.getCurrentSession();
 

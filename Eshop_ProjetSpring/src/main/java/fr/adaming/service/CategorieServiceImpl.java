@@ -21,8 +21,8 @@ public class CategorieServiceImpl implements IGeneriqueService<Categorie> {
 	}
 
 	@Override
-	public void ajouter(Categorie t) {
-		categorieDao.ajouter(t);
+	public void ajouter(Categorie categorie) {
+		categorieDao.ajouter(categorie);
 
 	}
 
@@ -32,17 +32,17 @@ public class CategorieServiceImpl implements IGeneriqueService<Categorie> {
 	}
 
 	@Override
-	public Categorie consulterParId(int id) {
+	public Categorie consulterParId(Long id) {
 		return categorieDao.consulterParId(id);
 	}
 
 	@Override
-	public void modifier(Categorie t) {
-		categorieDao.modifier(t);
+	public void modifier(Categorie categorie) {
+		categorieDao.modifier(categorie);
 	}
 
 	@Override
-	public void supprimer(int id) {
+	public void supprimer(Long id) {
 		categorieDao.supprimer(id);
 	}
 

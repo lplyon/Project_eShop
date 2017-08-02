@@ -47,7 +47,7 @@ public class ClientDaoImpl implements IGeneriqueDao<Client> {
 	}
 
 	@Override
-	public Client consulterParId(int id) {
+	public Client consulterParId(Long id) {
 
 		// Ouverture de la session (bus) avec la DB
 		Session s = sf.getCurrentSession();
@@ -68,7 +68,7 @@ public class ClientDaoImpl implements IGeneriqueDao<Client> {
 	}
 
 	@Override
-	public void supprimer(int id) {
+	public void supprimer(Long id) {
 
 		// Ouverture de la session (bus) avec la DB
 		Session s = sf.getCurrentSession();

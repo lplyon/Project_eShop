@@ -23,8 +23,8 @@ public class CommandeServiceImpl implements IGeneriqueDao<Commande>{
 	
 
 	@Override
-	public void ajouter(Commande t) {
-		commandeDao.ajouter(t);	
+	public void ajouter(Commande commande) {
+		commandeDao.ajouter(commande);	
 	}
 
 	@Override
@@ -33,17 +33,17 @@ public class CommandeServiceImpl implements IGeneriqueDao<Commande>{
 	}
 
 	@Override
-	public Commande consulterParId(int id) {
+	public Commande consulterParId(Long id) {
 		return commandeDao.consulterParId(id);
 	}
 
 	@Override
-	public void modifier(Commande t) {
-		commandeDao.modifier(t);
+	public void modifier(Commande commande) {
+		commandeDao.modifier(commande);
 	}
 
 	@Override
-	public void supprimer(int id) {
+	public void supprimer(Long id) {
 		commandeDao.supprimer(id);
 	}
 

@@ -47,7 +47,7 @@ public class CategorieDaoImpl implements IGeneriqueDao<Categorie> {
 	}
 
 	@Override
-	public Categorie consulterParId(int id) {
+	public Categorie consulterParId(Long id) {
 
 		// Ouverture de la session (bus) avec la DB
 		Session s = sf.getCurrentSession();
@@ -66,7 +66,7 @@ public class CategorieDaoImpl implements IGeneriqueDao<Categorie> {
 	}
 
 	@Override
-	public void supprimer(int id) {
+	public void supprimer(Long id) {
 
 		// Ouverture de la session (bus) avec la DB
 		Session s = sf.getCurrentSession();

@@ -57,7 +57,7 @@ public class ProduitDaoImpl implements IProduitDao {
 	}
 
 	@Override
-	public Produit consulterParId(int id) {
+	public Produit consulterParId(Long id) {
 
 		// Ouverture de la session (bus) avec la DB
 		Session s = sf.getCurrentSession();
@@ -78,7 +78,7 @@ public class ProduitDaoImpl implements IProduitDao {
 	}
 
 	@Override
-	public void supprimer(int id) {
+	public void supprimer(Long id) {
 
 		// Ouverture de la session (bus) avec la DB
 		Session s = sf.getCurrentSession();
@@ -91,7 +91,7 @@ public class ProduitDaoImpl implements IProduitDao {
 	// Methodes Metiers
 
 	@Override
-	public List<Produit> consulterParCategorie(int idCategorie) {
+	public List<Produit> consulterParCategorie(Long idCategorie) {
 
 		// Ouverture de la session (bus) avec la DB
 		Session s = sf.getCurrentSession();
@@ -105,7 +105,7 @@ public class ProduitDaoImpl implements IProduitDao {
 	}
 
 	@Override
-	public List<Produit> consulterSelection(int idClient) {
+	public List<Produit> consulterSelection(Long idClient) {
 		// TODO Auto-generated method stub
 		return null;
 	}

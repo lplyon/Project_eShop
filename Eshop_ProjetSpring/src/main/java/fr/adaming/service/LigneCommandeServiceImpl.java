@@ -29,7 +29,7 @@ public class LigneCommandeServiceImpl implements IGeneriqueService<LigneCommande
 	}
 
 	@Override
-	public LigneCommande consulterParId(int id) {
+	public LigneCommande consulterParId(Long id) {
 
 		return ligneCommandeDao.consulterParId(id);
 	}
@@ -41,7 +41,7 @@ public class LigneCommandeServiceImpl implements IGeneriqueService<LigneCommande
 	}
 
 	@Override
-	public void supprimer(int id) {
+	public void supprimer(Long id) {
 		ligneCommandeDao.supprimer(id);
 
 	}

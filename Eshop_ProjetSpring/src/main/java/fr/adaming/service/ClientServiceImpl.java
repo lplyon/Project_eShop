@@ -22,8 +22,8 @@ public class ClientServiceImpl implements IGeneriqueService<Client> {
 	}
 
 	@Override
-	public void ajouter(Client t) {
-		clientDao.ajouter(t);
+	public void ajouter(Client client) {
+		clientDao.ajouter(client);
 	}
 
 	@Override
@@ -32,18 +32,18 @@ public class ClientServiceImpl implements IGeneriqueService<Client> {
 	}
 
 	@Override
-	public Client consulterParId(int id) {
+	public Client consulterParId(Long id) {
 		return clientDao.consulterParId(id);
 	}
 
 	@Override
-	public void modifier(Client t) {
-		clientDao.modifier(t);
+	public void modifier(Client client) {
+		clientDao.modifier(client);
 
 	}
 
 	@Override
-	public void supprimer(int id) {
+	public void supprimer(Long id) {
 		clientDao.supprimer(id);
 
 	}

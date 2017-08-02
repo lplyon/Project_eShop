@@ -48,7 +48,7 @@ public class LigneCommandeDaoImpl implements IGeneriqueDao<LigneCommande> {
 	}
 
 	@Override
-	public LigneCommande consulterParId(int id) {
+	public LigneCommande consulterParId(Long id) {
 
 		// Ouverture de la session (bus) avec la DB
 		Session s = sf.getCurrentSession();
@@ -69,7 +69,7 @@ public class LigneCommandeDaoImpl implements IGeneriqueDao<LigneCommande> {
 	}
 
 	@Override
-	public void supprimer(int id) {
+	public void supprimer(Long id) {
 		// Ouverture de la session (bus) avec la DB
 		Session s = sf.getCurrentSession();
 
