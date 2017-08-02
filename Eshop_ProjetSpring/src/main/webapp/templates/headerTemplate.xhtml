@@ -13,36 +13,16 @@
 <h:body>
 	<ui:composition>
 		<h:form>
-			<p:tabMenu activeIndex="#{param.i}">
-				<p:menuitem value="Accueil" outcome="/ui/menu/tabMenu"
-					icon="ui-icon-star">
-					<f:param name="i" value="0" />
-				</p:menuitem>
-				<p:menuitem value="Consulter et rechercher des articles"
-					outcome="/ui/menu/tabMenu" icon="ui-icon-search">
-					<f:param name="i" value="1" />
-				</p:menuitem>
-				<p:menuitem value="Voir mon panier" outcome="/ui/menu/tabMenu"
-					icon="ui-icon-document">
-					<f:param name="i" value="2" />
-				</p:menuitem>
-				<p:menuitem value="Ajouter un produit" outcome="/ui/menu/tabMenu"
-					icon="ui-icon-wrench">
-					<f:param name="i" value="3" />
-				</p:menuitem>
-				<p:menuitem value="Supprimer un produit" outcome="/ui/menu/tabMenu"
-					icon="ui-icon-wrench">
-					<f:param name="i" value="3" />
-				</p:menuitem>
-				<p:menuitem value="Modifier un produit" outcome="/ui/menu/tabMenu"
-					icon="ui-icon-wrench">
-					<f:param name="i" value="3" />
-				</p:menuitem>
-				<p:menuitem value="Se connecter" outcome="/ui/menu/tabMenu"
-					icon="ui-icon-person">
-					<f:param name="i" value="4" />
-				</p:menuitem>
-			</p:tabMenu>
+			<p:breadCrumb>
+				<p:menuitem value="Menu" url="index.xhtml" />
+				<p:menuitem value="Consulter et rechercher des articles" url="#" />
+				<p:menuitem value="Voir mon panier" url="#" />
+				<p:menuitem value="Ajouter un produit" url="#" />
+				<p:menuitem value="Supprimer un produit" url="#" />
+				<p:menuitem value="Modifier un produit" url="#" />
+				<p:menuitem value="Se connecter" url="#" />
+			</p:breadCrumb>
+
 		</h:form>
 	</ui:composition>
 
