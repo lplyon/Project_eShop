@@ -28,6 +28,35 @@
 
 	</bean>
 	
+		<!-- Déclaration de la session du bean : sessionFactory -->
+	<bean id="sessionFactoryBean"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceBean" />
+
+		<!-- Spécifier les entités annotées par les @ JPA -->
+		<property name="packagesToScan" value="fr.adaming.model" />
+
+
+		<!-- Spécifier les propriétés de Hibernate -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.hbm2ddl.auto"> ${hb.auto} </prop>
+				<prop key="hibernate.show_sql"> ${hb.sql} </prop>
+				<prop key="hibernate.dialect"> ${hb.dialect} </prop>
+			</props>
+		</property>
+	</bean>
+
+
+<!-- Définition du Bean transactionManager : son role est la gestion des  transactions -->
+<bean id="transactionManagerBean" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+<!-- Injection de la session facory -->
+<property name="sessionFactory" ref="sessionFactoryBean"></property>
+</bean>
+
+
+<!-- Activation de la détection des transactions : @Transactional -->
+<tx:annotation-driven transaction-manager="transactionManagerBean"/>
 	
 
 

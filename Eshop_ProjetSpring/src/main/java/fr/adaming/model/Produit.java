@@ -1,8 +1,27 @@
 package fr.adaming.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name="produits")
 public class Produit {
 
 	// Attributs
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idProduit;
 	private String designation;
 	private String description;
@@ -10,7 +29,16 @@ public class Produit {
 	private int quantite;
 	private boolean selectionne;
 	private String photo;
+	
+	@ManyToOne
+	@JoinColumn(name = "fk_categorie", referencedColumnName = "idCategorie")
+	private Categorie categorie;
+	
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "JoinTable", joinColumns = @JoinColumn(name = "idcommande"), inverseJoinColumns = @JoinColumn(name = "idProduit"))
+	private List<Produit> lproduits;
 
+	
 	public Produit() {
 		super();
 		// TODO Auto-generated constructor stub

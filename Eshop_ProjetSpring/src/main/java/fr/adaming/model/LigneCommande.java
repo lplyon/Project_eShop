@@ -1,7 +1,19 @@
 package fr.adaming.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="lignesCommandes")
 public class LigneCommande {
 
+	// les attributs
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int idLigneCommande;
 	private int quantite;
 	private double prix;
 

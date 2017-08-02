@@ -1,11 +1,35 @@
 package fr.adaming.model;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="commandes")
 public class Commande {
 
+	// les attributs
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idCommande;
 	private Date dateCommande;
+	
+	@ManyToOne
+	@JoinColumn(name = "fk_client", referencedColumnName = "idClient")
+	private Client client;
+	
+	@ManyToMany(mappedBy="lCommandes", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	private List<Commande> lCommandes;
 
 	public Commande() {
 		super();
