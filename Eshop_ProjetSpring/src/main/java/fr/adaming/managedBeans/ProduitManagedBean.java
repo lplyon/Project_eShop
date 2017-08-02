@@ -35,6 +35,7 @@ public class ProduitManagedBean implements Serializable {
 	}
 
 	// Les Getters Setters
+
 	public void setProduitService(IProduitService produitService) {
 		this.produitService = produitService;
 	}

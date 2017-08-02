@@ -18,17 +18,20 @@
 
 	<p:separator />
 
-	<p:dataTable var="produits" value="#{pMB.lProduits}">
-		<p:column headerText="Id">
-			<h:outputText value="#{pMB.produit.designation}" />
-		</p:column>
-
+	<p:dataTable var="clients" value="#{clientMB.lClients}">
 		<p:column headerText="Nom">
-			<h:outputText value="#{pMB.produit.description}" />
+			<h:outputText value="#{clientMB.client.nomClient}" />
 		</p:column>
 
-		<p:column headerText="Prenom">
-			<h:outputText value="#{pMB.produit.prix}" />
+		<p:column headerText="Adresse">
+			<h:outputText value="#{clientMB.client.adresse}" />
+		</p:column>
+
+		<p:column headerText="Mail">
+			<h:outputText value="#{clientMB.client.mail}" />
+		</p:column>
+		<p:column headerText="Tel">
+			<h:outputText value="#{clientMB.client.tel}" />
 		</p:column>
 	</p:dataTable>
 

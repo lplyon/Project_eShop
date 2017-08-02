@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Page index</title>
+</h:head>
+
+<h:body>
+
+	<ui:insert name="header">
+		<ui:include src="/templates/headerTemplate.xhtml"></ui:include>
+	</ui:insert>
+
+	<p:separator />
+
+<h:form>
+		<h:panelGrid columns="2" cellpadding="5">
+			<p:outputLabel for="idNom" value="Nom : " />
+			<p:inputText id="idNom" value="#{clientMB.client.nomClient}" />
+			<p:outputLabel for="idAdresse" value="Adresse : " />
+			<p:inputText id="idAdresse" value="#{clientMB.client.adresse}" />
+			<p:outputLabel for="idMail" value="Mail : " />
+			<p:inputText id="idMail" value="#{clientMB.client.mail}" />
+			<p:outputLabel for="idTel" value="Tel : " />
+			<p:inputText id="idTel" value="#{clientMB.client.tel}" />
+			</h:panelGrid>
+			<p:commandButton action="#{clientMB.ajouterClient}"/>
+</h:form>
+
+</h:body>
+</html>
