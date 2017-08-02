@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -34,29 +35,18 @@ public class Produit {
 	@JoinColumn(name = "fk_categorie", referencedColumnName = "idCategorie")
 	private Categorie categorie;
 	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(name = "JoinTable", joinColumns = @JoinColumn(name = "idcommande"), inverseJoinColumns = @JoinColumn(name = "idProduit"))
-	private List<Produit> lproduits;
+	@OneToMany(mappedBy="produit", cascade=CascadeType.ALL)
+	private List<LigneCommande> lLignesCommandes;
 
 	
+	//Constructeur vide
 	public Produit() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Produit(String designation, String description, double prix, int quantite, boolean selectionne,
-			String photo) {
-		super();
-		this.designation = designation;
-		this.description = description;
-		this.prix = prix;
-		this.quantite = quantite;
-		this.selectionne = selectionne;
-		this.photo = photo;
-	}
-
+	//contructeur avec id
 	public Produit(Long idProduit, String designation, String description, double prix, int quantite,
-			boolean selectionne, String photo) {
+			boolean selectionne, String photo, Categorie categorie, List<LigneCommande> lLignesCommandes) {
 		super();
 		this.idProduit = idProduit;
 		this.designation = designation;
@@ -65,8 +55,27 @@ public class Produit {
 		this.quantite = quantite;
 		this.selectionne = selectionne;
 		this.photo = photo;
+		this.categorie = categorie;
+		this.lLignesCommandes = lLignesCommandes;
 	}
 
+	// Constructeur sans id
+	public Produit(String designation, String description, double prix, int quantite, boolean selectionne, String photo,
+			Categorie categorie, List<LigneCommande> lLignesCommandes) {
+		super();
+		this.designation = designation;
+		this.description = description;
+		this.prix = prix;
+		this.quantite = quantite;
+		this.selectionne = selectionne;
+		this.photo = photo;
+		this.categorie = categorie;
+		this.lLignesCommandes = lLignesCommandes;
+	}
+
+	
+	// GETTER - SETTER
+	
 	public Long getIdProduit() {
 		return idProduit;
 	}
@@ -122,5 +131,38 @@ public class Produit {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
+
+	public Categorie getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(Categorie categorie) {
+		this.categorie = categorie;
+	}
+
+	public List<LigneCommande> getlLignesCommandes() {
+		return lLignesCommandes;
+	}
+
+	public void setlLignesCommandes(List<LigneCommande> lLignesCommandes) {
+		this.lLignesCommandes = lLignesCommandes;
+	}
+	
+	
+	// TO STRING
+	@Override
+	public String toString() {
+		return "Produit [" + (idProduit != null ? "idProduit=" + idProduit + ", " : "")
+				+ (designation != null ? "designation=" + designation + ", " : "")
+				+ (description != null ? "description=" + description + ", " : "") + "prix=" + prix + ", quantite="
+				+ quantite + ", selectionne=" + selectionne + ", " + (photo != null ? "photo=" + photo + ", " : "")
+				+ (categorie != null ? "categorie=" + categorie + ", " : "")
+				+ (lLignesCommandes != null ? "lLignesCommandes=" + lLignesCommandes : "") + "]";
+	}
+	
+	
+	
+	
+	
 
 }

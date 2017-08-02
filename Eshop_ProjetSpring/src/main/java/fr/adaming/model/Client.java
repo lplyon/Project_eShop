@@ -26,11 +26,12 @@ public class Client {
 	@OneToMany(mappedBy="client", cascade=CascadeType.ALL)
 	private List<Commande> lcommandes;
 
+	//Constructeur vide
 	public Client() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
+	//Constructeur sans id
 	public Client(String nomClient, String adresse, String mail, String tel) {
 		super();
 		this.nomClient = nomClient;
@@ -39,6 +40,7 @@ public class Client {
 		this.tel = tel;
 	}
 
+	//Constructeur avec id
 	public Client(Long idClient, String nomClient, String adresse, String mail, String tel) {
 		super();
 		this.idClient = idClient;
@@ -48,6 +50,8 @@ public class Client {
 		this.tel = tel;
 	}
 
+	// GETTER - SETTER
+	
 	public Long getIdClient() {
 		return idClient;
 	}
@@ -88,6 +92,7 @@ public class Client {
 		this.tel = tel;
 	}
 
+	// TO STRING
 	@Override
 	public String toString() {
 		return "Client [" + (idClient != null ? "idClient=" + idClient + ", " : "")

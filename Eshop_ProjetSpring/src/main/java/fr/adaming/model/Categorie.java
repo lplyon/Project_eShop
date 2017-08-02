@@ -25,11 +25,12 @@ public class Categorie {
 	@OneToMany(mappedBy="categorie", cascade=CascadeType.ALL)
 	private List<Produit> lProduits;
 
+	//Constructeur vide
 	public Categorie() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
+	//Constructeur avec id
 	public Categorie(Long idCategorie, String nomCategorie, byte photo, String description) {
 		super();
 		this.idCategorie = idCategorie;
@@ -38,12 +39,15 @@ public class Categorie {
 		this.description = description;
 	}
 
+	// Constructeur sans id
 	public Categorie(String nomCategorie, byte photo, String description) {
 		super();
 		this.nomCategorie = nomCategorie;
 		this.photo = photo;
 		this.description = description;
 	}
+	
+	// GETTER - SETTER
 
 	public Long getIdCategorie() {
 		return idCategorie;
@@ -76,6 +80,8 @@ public class Categorie {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	// TO STRING
 
 	@Override
 	public String toString() {

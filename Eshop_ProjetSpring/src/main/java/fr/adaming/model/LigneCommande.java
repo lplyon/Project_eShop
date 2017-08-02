@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,16 +18,49 @@ public class LigneCommande {
 	private int idLigneCommande;
 	private int quantite;
 	private double prix;
+	
+	@ManyToOne
+	@JoinColumn(name = "fk_produit", referencedColumnName = "idProduit")
+	private Produit produit;
+	
+	@ManyToOne
+	@JoinColumn(name = "fk_commande", referencedColumnName = "idCommande")
+	private Commande commande;
 
+	//Constructeur vide
 	public LigneCommande() {
 		super();
-		// TODO Auto-generated constructor stub
+	}
+	
+
+	// Constructeur avec id
+	public LigneCommande(int idLigneCommande, int quantite, double prix, Produit produit, Commande commande) {
+		super();
+		this.idLigneCommande = idLigneCommande;
+		this.quantite = quantite;
+		this.prix = prix;
+		this.produit = produit;
+		this.commande = commande;
 	}
 
-	public LigneCommande(int quantite, double prix) {
+
+	// Constructeur sans id
+	public LigneCommande(int quantite, double prix, Produit produit, Commande commande) {
 		super();
 		this.quantite = quantite;
 		this.prix = prix;
+		this.produit = produit;
+		this.commande = commande;
+	}
+	
+	// GETTER - SETTER
+
+	public int getIdLigneCommande() {
+		return idLigneCommande;
+	}
+
+	public void setIdLigneCommande(int idLigneCommande) {
+		this.idLigneCommande = idLigneCommande;
 	}
 
 	public int getQuantite() {
@@ -44,9 +79,31 @@ public class LigneCommande {
 		this.prix = prix;
 	}
 
-	@Override
-	public String toString() {
-		return "LigneCommande [quantite=" + quantite + ", prix=" + prix + "]";
+	public Produit getProduit() {
+		return produit;
 	}
 
+	public void setProduit(Produit produit) {
+		this.produit = produit;
+	}
+
+	public Commande getCommande() {
+		return commande;
+	}
+
+	public void setCommande(Commande commande) {
+		this.commande = commande;
+	}
+
+	// TO STRING
+	@Override
+	public String toString() {
+		return "LigneCommande [idLigneCommande=" + idLigneCommande + ", quantite=" + quantite + ", prix=" + prix + ", "
+				+ (produit != null ? "produit=" + produit + ", " : "")
+				+ (commande != null ? "commande=" + commande : "") + "]";
+	}
+
+	
+	
+	
 }

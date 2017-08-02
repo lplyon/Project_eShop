@@ -5,13 +5,12 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -28,20 +27,32 @@ public class Commande {
 	@JoinColumn(name = "fk_client", referencedColumnName = "idClient")
 	private Client client;
 	
-	@ManyToMany(mappedBy="lCommandes", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	private List<Commande> lCommandes;
+	@OneToMany(mappedBy="commande", cascade=CascadeType.ALL)
+	private List<LigneCommande> lLignesCommandes;
 
+	//Constructeur vide
 	public Commande() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Commande(Long idCommande, Date dateCommande) {
+	// Constructeur avec id
+	public Commande(Long idCommande, Date dateCommande, Client client, List<LigneCommande> lLignesCommandes) {
 		super();
 		this.idCommande = idCommande;
 		this.dateCommande = dateCommande;
+		this.client = client;
+		this.lLignesCommandes = lLignesCommandes;
 	}
 
+	// Constructeur sans id
+	public Commande(Date dateCommande, Client client, List<LigneCommande> lLignesCommandes) {
+		super();
+		this.dateCommande = dateCommande;
+		this.client = client;
+		this.lLignesCommandes = lLignesCommandes;
+	}
+
+	// GETTER - SETTER
 	public Long getIdCommande() {
 		return idCommande;
 	}
@@ -58,10 +69,34 @@ public class Commande {
 		this.dateCommande = dateCommande;
 	}
 
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public List<LigneCommande> getlLignesCommandes() {
+		return lLignesCommandes;
+	}
+
+	public void setlLignesCommandes(List<LigneCommande> lLignesCommandes) {
+		this.lLignesCommandes = lLignesCommandes;
+	}
+
+	
+	// TO STRING
 	@Override
 	public String toString() {
 		return "Commande [" + (idCommande != null ? "idCommande=" + idCommande + ", " : "")
-				+ (dateCommande != null ? "dateCommande=" + dateCommande : "") + "]";
+				+ (dateCommande != null ? "dateCommande=" + dateCommande + ", " : "")
+				+ (client != null ? "client=" + client + ", " : "")
+				+ (lLignesCommandes != null ? "lLignesCommandes=" + lLignesCommandes : "") + "]";
 	}
+	
+	
+	
+	
 
 }
