@@ -58,5 +58,15 @@ public class ProduitManagedBean implements Serializable {
 	public void setlProduits(List<Produit> lProduits) {
 		this.lProduits = lProduits;
 	}
+	
+	// Methodes Metiers
+	public String ajouterProduit(){
+		produitService.ajouter(this.produit);
+		
+		//Rechargement de la liste
+		this.lProduits = produitService.consulterTout();
+		return "gestionProduits";
+		
+	}
 
 }
