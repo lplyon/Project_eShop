@@ -2,11 +2,18 @@ package fr.adaming.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import fr.adaming.dao.IProduitDao;
 import fr.adaming.model.Produit;
 
+@Service("produitServiceBean")
+@Transactional
 public class ProduitServiceImpl implements IProduitDao{
 
+	@Autowired
 	private IProduitDao produitDao;
 
 	

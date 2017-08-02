@@ -2,11 +2,18 @@ package fr.adaming.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import fr.adaming.dao.IGeneriqueDao;
 import fr.adaming.model.Categorie;
 
+@Service("categorieServiceBean")
+@Transactional
 public class CategorieServiceImpl implements IGeneriqueService<Categorie> {
 
+	@Autowired
 	private IGeneriqueDao<Categorie> categorieDao;
 
 	public void setCategorieDao(IGeneriqueDao<Categorie> categorieDao) {
