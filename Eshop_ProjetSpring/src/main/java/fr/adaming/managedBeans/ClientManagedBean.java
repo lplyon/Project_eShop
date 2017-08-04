@@ -61,5 +61,27 @@ public class ClientManagedBean implements Serializable {
 		this.lClients = clientService.consulterTout();
 		return "index";
 	}
+	
+	public String modifierClient(){
+		clientService.modifier(this.client);
+		this.lClients = clientService.consulterTout();
+		return "index";
+	}
+	
+	
+	public String supprimerClient(){
+		clientService.supprimer(this.client.getIdClient());
+		this.lClients = clientService.consulterTout();
+		return "index";
+	}
+	
+	public String rechercherClient(){
+		clientService.consulterParId(this.client.getIdClient());
+		this.lClients = clientService.consulterTout();
+		return "index";
+	}
+	
+	
+	
 
 }
