@@ -3,6 +3,7 @@ package fr.adaming.managedBeans;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 
@@ -17,8 +18,10 @@ public class CommandeManagedBean implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	//Attributs
 	private Commande commande;
 	private List<Commande> lCommandes;
+	
 	
 	@ManagedProperty("commandServiceBean")
 	private IGeneriqueService<Commande> comService;
@@ -27,7 +30,19 @@ public class CommandeManagedBean implements Serializable{
 		super();
 		this.commande=new Commande();
 	}
-
+	
+	//setter pour injection de dépendances
+	public void setComService(IGeneriqueService<Commande> comService) {
+		this.comService = comService;
+	}
+	
+	//méthode exécutée après instanciation du managed bean
+	@PostConstruct
+	public void init(){	
+		this.lCommandes=comService.consulterTout();
+	}
+	
+	//getters et setters
 	public Commande getCommande() {
 		return commande;
 	}
@@ -44,10 +59,8 @@ public class CommandeManagedBean implements Serializable{
 		this.lCommandes = lCommandes;
 	}
 
-	public void setComService(IGeneriqueService<Commande> comService) {
-		this.comService = comService;
-	}
 	
+	//méthodes services
 	public String ajouterCommande(){
 		comService.ajouter(this.commande);
 		this.lCommandes=comService.consulterTout();
