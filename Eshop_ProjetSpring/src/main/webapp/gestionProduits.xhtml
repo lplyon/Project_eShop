@@ -20,15 +20,15 @@
 <h:form>
 		<h:panelGrid columns="2" cellpadding="5">
 			<p:outputLabel for="idDesignation" value="Designation : " />
-			<p:inputText id="idDesignation" value="" />
+			<p:inputText id="idDesignation" value="#{produitMB.produit.designation}" />
 			<p:outputLabel for="idDescription" value="Description : " />
-			<p:inputText id="idDescription" value="" />
+			<p:inputText id="idDescription" value="#{produitMB.produit.description}" />
 			<p:outputLabel for="idPrix" value="Prix : " />
-			<p:inputText id="idPrix" value="" />
+			<p:inputText id="idPrix" value="#{produitMB.produit.prix}" />
 			<p:outputLabel for="idQuantite" value="Quantité : " />
-			<p:inputText id="idQuantite" value="" />
+			<p:inputText id="idQuantite" value="#{produitMB.produit.quantite}" />
 			</h:panelGrid>
-			<p:commandButton value="Sauvegarder" action="#{clientMB.ajouterClient}"/>
+			<p:commandButton value="Sauvegarder" action="#{produitMB.ajouterProduit}"/>
 </h:form>
 
 </h:body>

@@ -9,6 +9,7 @@ import javax.faces.bean.RequestScoped;
 
 import fr.adaming.model.Produit;
 import fr.adaming.service.IGeneriqueService;
+import fr.adaming.service.IProduitService;
 
 @ManagedBean(name="produitMB")
 @RequestScoped
@@ -18,7 +19,7 @@ public class ProduitManagedBean {
 	private List<Produit>lProduits;
 	
 	@ManagedProperty(value="#{produitServiceBean}")
-	private IGeneriqueService<Produit> produitService;
+	private IProduitService produitService;
 	
 	
 	
@@ -34,7 +35,7 @@ public class ProduitManagedBean {
 	}
 
 	//setter pour injection de dépendances
-	public void setProduitService(IGeneriqueService<Produit> produitService) {
+	public void setProduitService(IProduitService produitService) {
 		this.produitService = produitService;
 	}
 

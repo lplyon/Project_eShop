@@ -11,7 +11,7 @@ import fr.adaming.model.Produit;
 
 @Service("produitServiceBean")
 @Transactional
-public class ProduitServiceImpl implements IProduitDao{
+public class ProduitServiceImpl implements IProduitService{
 
 	@Autowired
 	private IProduitDao produitDao;
