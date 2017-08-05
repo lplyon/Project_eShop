@@ -7,14 +7,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IGeneriqueDao;
+import fr.adaming.dao.ILigneCommandeDao;
 import fr.adaming.model.LigneCommande;
 
 @Service("ligneCommandeServiceBean")
 @Transactional
-public class LigneCommandeServiceImpl implements IGeneriqueService<LigneCommande> {
+public class LigneCommandeServiceImpl implements ILigneCommandeService {
 
+	//déclaration de l'interface LigneCommandeDao
 	@Autowired
-	private IGeneriqueDao<LigneCommande> ligneCommandeDao;
+	private ILigneCommandeDao ligneCommandeDao;
 
 	@Override
 	public void ajouter(LigneCommande ligneCommande) {
@@ -29,7 +31,7 @@ public class LigneCommandeServiceImpl implements IGeneriqueService<LigneCommande
 	}
 
 	@Override
-	public LigneCommande consulterParId(Long id) {
+	public LigneCommande consulterParId(int id) {
 
 		return ligneCommandeDao.consulterParId(id);
 	}
@@ -41,9 +43,11 @@ public class LigneCommandeServiceImpl implements IGeneriqueService<LigneCommande
 	}
 
 	@Override
-	public void supprimer(Long id) {
+	public void supprimer(int id) {
 		ligneCommandeDao.supprimer(id);
 
 	}
+
+	
 
 }

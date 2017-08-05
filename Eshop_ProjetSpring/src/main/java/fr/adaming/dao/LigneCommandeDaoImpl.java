@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import fr.adaming.model.LigneCommande;
 
 @Repository
-public class LigneCommandeDaoImpl implements IGeneriqueDao<LigneCommande> {
+public class LigneCommandeDaoImpl implements ILigneCommandeDao {
 
 	// Declaration de la SessionFactory
 	@Autowired
@@ -40,7 +40,7 @@ public class LigneCommandeDaoImpl implements IGeneriqueDao<LigneCommande> {
 		// Requete HQL
 		String req = "FROM LigneCommande";
 
-		// Envoie de la requete et récupération du résultat
+		// Envoi de la requete et récupération du résultat
 		Query query = s.createQuery(req);
 		List<LigneCommande> lLigneCommandes = query.list();
 
@@ -48,7 +48,7 @@ public class LigneCommandeDaoImpl implements IGeneriqueDao<LigneCommande> {
 	}
 
 	@Override
-	public LigneCommande consulterParId(Long id) {
+	public LigneCommande consulterParId(int id) {
 
 		// Ouverture de la session (bus) avec la DB
 		Session s = sf.getCurrentSession();
@@ -69,7 +69,7 @@ public class LigneCommandeDaoImpl implements IGeneriqueDao<LigneCommande> {
 	}
 
 	@Override
-	public void supprimer(Long id) {
+	public void supprimer(int id) {
 		// Ouverture de la session (bus) avec la DB
 		Session s = sf.getCurrentSession();
 
@@ -77,5 +77,8 @@ public class LigneCommandeDaoImpl implements IGeneriqueDao<LigneCommande> {
 
 		s.delete(ligneCommande);
 	}
+
+	
+
 
 }

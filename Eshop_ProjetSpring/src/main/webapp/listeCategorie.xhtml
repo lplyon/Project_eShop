@@ -19,6 +19,9 @@
 
 
 	<p:dataTable var="categorie" value="#{categorieMB.lCategories}">
+	<p:column headerText="ID">
+			<h:outputText value="#{categorieMB.categorie.idCategorie}" />
+		</p:column>
 		<p:column headerText="Description">
 			<h:outputText value="#{categorieMB.categorie.description}" />
 		</p:column>
