@@ -35,23 +35,22 @@
 <h1> Liste des catégories</h1>
 <p:dataTable var="categorie" value="#{categorieMB.lCategories}">
 	<p:column headerText="ID">
-			<h:outputText value="#{categorieMB.categorie.idCategorie}" />
+			<h:outputText value="#{categorie.idCategorie}" />
 		</p:column>
 		<p:column headerText="Description">
-			<h:outputText value="#{categorieMB.categorie.description}" />
+			<h:outputText value="#{categorie.description}" />
 		</p:column>
 		<p:column headerText="Nom">
-			<h:outputText value="#{categorieMB.categorie.nomCategorie}" />
+			<h:outputText value="#{categorie.nomCategorie}" />
 		</p:column>
 
 		<p:column headerText="Photo">
-			<h:outputText value="#{categorieMB.categorie.photo}" />
+			<h:outputText value="#{categorie.photo}" />
 			
 		</p:column>
 		<p:column headerText="Action">
 			<h:form>
-			<p:commandButton value="Modifier" action ="#{categorieMB.modifierCategorie}" update="@all">
-<!-- 			<f:setPropertyActionListener value="#{categorie.idCategorie}" target="#{categorieMB.categorie.idCategorie}" />-->
+			<p:commandButton value="Modifier" action ="modifCategorie" update="@all">
 </p:commandButton> 
 			</h:form>
 		</p:column>
