@@ -24,7 +24,6 @@ public class Categorie {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCategorie;
 	private String nomCategorie;
-	private byte photo;
 	private String description;
 
 	@OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL)
@@ -39,29 +38,28 @@ public class Categorie {
 
 	/**
 	 * Constructeur avec ID
+	 * 
 	 * @param idCategorie
 	 * @param nomCategorie
-	 * @param photo
 	 * @param description
 	 */
-	public Categorie(Long idCategorie, String nomCategorie, byte photo, String description) {
+	public Categorie(Long idCategorie, String nomCategorie, String description) {
 		super();
 		this.idCategorie = idCategorie;
 		this.nomCategorie = nomCategorie;
-		this.photo = photo;
+
 		this.description = description;
 	}
 
 	/**
 	 * Constructeur sans ID
+	 * 
 	 * @param nomCategorie
-	 * @param photo
 	 * @param description
 	 */
-	public Categorie(String nomCategorie, byte photo, String description) {
+	public Categorie(String nomCategorie, String description) {
 		super();
 		this.nomCategorie = nomCategorie;
-		this.photo = photo;
 		this.description = description;
 	}
 
@@ -82,14 +80,6 @@ public class Categorie {
 	public void setNomCategorie(String nomCategorie) {
 		this.nomCategorie = nomCategorie;
 	}
-	
-	public byte getPhoto() {
-		return photo;
-	}
-
-	public void setPhoto(byte photo) {
-		this.photo = photo;
-	}
 
 	public String getDescription() {
 		return description;
@@ -107,13 +97,14 @@ public class Categorie {
 		this.lProduits = lProduits;
 	}
 
-	// TO STRING
-
 	@Override
 	public String toString() {
 		return "Categorie [" + (idCategorie != null ? "idCategorie=" + idCategorie + ", " : "")
-				+ (nomCategorie != null ? "nomCategorie=" + nomCategorie + ", " : "") + "photo=" + photo + ", "
-				+ (description != null ? "description=" + description : "") + "]";
+				+ (nomCategorie != null ? "nomCategorie=" + nomCategorie + ", " : "")
+				+ (description != null ? "description=" + description + ", " : "")
+				+ (lProduits != null ? "lProduits=" + lProduits : "") + "]";
 	}
+
+	// TO STRING
 
 }

@@ -18,6 +18,7 @@ import javax.persistence.Table;
 
 /**
  * Classe model Produit
+ * 
  * @author Semi-Croustillant
  *
  */
@@ -35,7 +36,6 @@ public class Produit {
 	private int quantite;
 	@Column(nullable = false, columnDefinition = "TINYINT", length = 1)
 	private boolean selectionne;
-	private String photo;
 
 	@ManyToOne
 	@JoinColumn(name = "fk_categorie", referencedColumnName = "idCategorie")
@@ -53,16 +53,16 @@ public class Produit {
 
 	/**
 	 * Constructeur avec ID
+	 * 
 	 * @param idProduit
 	 * @param designation
 	 * @param description
 	 * @param prix
 	 * @param quantite
 	 * @param selectionne
-	 * @param photo
 	 */
 	public Produit(Long idProduit, String designation, String description, double prix, int quantite,
-			boolean selectionne, String photo) {
+			boolean selectionne) {
 		super();
 		this.idProduit = idProduit;
 		this.designation = designation;
@@ -70,27 +70,24 @@ public class Produit {
 		this.prix = prix;
 		this.quantite = quantite;
 		this.selectionne = selectionne;
-		this.photo = photo;
 	}
 
 	/**
 	 * Constructeur sans ID
+	 * 
 	 * @param designation
 	 * @param description
 	 * @param prix
 	 * @param quantite
 	 * @param selectionne
-	 * @param photo
 	 */
-	public Produit(String designation, String description, double prix, int quantite, boolean selectionne,
-			String photo) {
+	public Produit(String designation, String description, double prix, int quantite, boolean selectionne) {
 		super();
 		this.designation = designation;
 		this.description = description;
 		this.prix = prix;
 		this.quantite = quantite;
 		this.selectionne = selectionne;
-		this.photo = photo;
 	}
 
 	// GETTER - SETTER
@@ -143,14 +140,6 @@ public class Produit {
 		this.selectionne = selectionne;
 	}
 
-	public String getPhoto() {
-		return photo;
-	}
-
-	public void setPhoto(String photo) {
-		this.photo = photo;
-	}
-
 	public Categorie getCategorie() {
 		return categorie;
 	}
@@ -173,7 +162,7 @@ public class Produit {
 		return "Produit [" + (idProduit != null ? "idProduit=" + idProduit + ", " : "")
 				+ (designation != null ? "designation=" + designation + ", " : "")
 				+ (description != null ? "description=" + description + ", " : "") + "prix=" + prix + ", quantite="
-				+ quantite + ", selectionne=" + selectionne + ", " + (photo != null ? "photo=" + photo + ", " : "")
+				+ quantite + ", selectionne=" + selectionne + ", "
 				+ (categorie != null ? "categorie=" + categorie + ", " : "")
 				+ (lLignesCommandes != null ? "lLignesCommandes=" + lLignesCommandes : "") + "]";
 	}

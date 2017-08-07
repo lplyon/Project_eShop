@@ -2,6 +2,12 @@ package fr.adaming.service;
 
 import java.util.List;
 
+/**
+ * Interface Service Générique
+ * @author Semi-Croustillant
+ *
+ * @param <T>
+ */
 public interface IGeneriqueService<T> {
 	
 	public void ajouter(T t);
