@@ -10,42 +10,53 @@
 	<title>Gestion des catégories</title>
 </h:head>
 
-<h:body style="background-color:#5F3E3E;">
+<h:body style="background-color:#5F3E3E;text-align:center;color:white">
 
 	<ui:insert name="header">
 		<ui:include src="/templates/headerTemplate.xhtml"></ui:include>
 	</ui:insert>
 
+	<h1>Votre recherche par id de cathégorie :</h1>
 
-<h:form>
-		<h:panelGrid columns="2" cellpadding="5">
-			<p:outputLabel for="id" value="ID: " />
-			<p:inputText id="id" value="#{categorieMB.categorie.idCategorie}" />
-		</h:panelGrid>
 
-			<p:commandButton value="Rechercher" action="#{categorieMB.rechercherCategorie}" update="@all">  </p:commandButton>
-			<h:messages color="red"/>
-</h:form>
+	<center>
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel for="id" value="ID: " />
+				<p:inputText id="id" value="#{categorieMB.categorie.idCategorie}" />
+			</h:panelGrid>
 
-<h1> Employé recherché</h1>
-	
-	<p:dataTable var="catégorie" value="#{categorieMB.categorie}" style="margin:100px">
-        <p:column headerText="Id">
-            <h:outputText value="#{categorie.id}" />
-        </p:column>
+			<p:commandButton value="Rechercher"
+				action="#{categorieMB.rechercherCategorie}" update="@all">
+			</p:commandButton>
+			<h:messages color="red" />
+		</h:form>
+	</center>
+	<br />
+	<br />
+	<p:separator />
+	<br />
 
-        <p:column headerText="Description">
-            <h:outputText value="#{categorie.description}" />
-        </p:column>
+	<h2>Votre produit :</h2>
 
-        <p:column headerText="Nom">
-            <h:outputText value="#{categorie.nom}" />
-        </p:column>
+	<p:dataTable var="catégorie" value="#{categorieMB.categorie}"
+		style="margin:50px">
+		<p:column headerText="Id">
+			<h:outputText value="#{categorie.id}" />
+		</p:column>
 
-        <p:column headerText="Photo">
-            <h:outputText value="#{categorie.photo}" />
-        </p:column>
-    </p:dataTable>
+		<p:column headerText="Description">
+			<h:outputText value="#{categorie.description}" />
+		</p:column>
+
+		<p:column headerText="Nom">
+			<h:outputText value="#{categorie.nom}" />
+		</p:column>
+
+		<p:column headerText="Photo">
+			<h:outputText value="#{categorie.photo}" />
+		</p:column>
+	</p:dataTable>
 
 
 

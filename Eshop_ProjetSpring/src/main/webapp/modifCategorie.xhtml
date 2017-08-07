@@ -10,26 +10,37 @@
 	<title>Page index</title>
 </h:head>
 
-<h:body style="background-color:#5F3E3E;">
+<h:body style="background-color:#5F3E3E;text-align:center;color:white">
 
 	<ui:insert name="header">
 		<ui:include src="/templates/headerTemplate.xhtml"></ui:include>
 	</ui:insert>
+	
+	<h1>Modifier votre cathégorie :</h1>
+	
+	<p:separator/>
 
+	<center>
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="4">
+				<p:outputLabel for="id" value="ID: " />
+				<p:inputText id="id" value="#{categorieMB.categorie.idCategorie}" />
+				<p:outputLabel for="idDescription" value="Description: " />
+				<p:inputText id="idDescription"
+					value="#{categorieMB.categorie.description}" />
+				<p:outputLabel for="idNomCategorie" value="Nom : " />
+				<p:inputText id="idNomCategorie"
+					value="#{categorieMB.categorie.nomCategorie}" />
+				<p:outputLabel for="idPhoto" value="Photo : " />
+				<p:inputText id="idPhoto" value="#{categorieMB.categorie.photo}" />
+			</h:panelGrid>
+			<br/>
+			<p:commandButton value="Modifier"
+				action="#{categorieMB.modifierCategorie}" update="@all">
+			</p:commandButton>
+			<h:messages color="red" />
+		</h:form>
+	</center>
 
-<h:form>
-		<h:panelGrid columns="2" cellpadding="4" >
-			<p:outputLabel for="id" value="ID: " />
-			<p:inputText id="id" value="#{categorieMB.categorie.idCategorie}" />
-			<p:outputLabel for="idDescription" value="Description: " />
-			<p:inputText id="idDescription" value="#{categorieMB.categorie.description}" />
-			<p:outputLabel for="idNomCategorie" value="Nom : " />
-			<p:inputText id="idNomCategorie" value="#{categorieMB.categorie.nomCategorie}" />
-			<p:outputLabel for="idPhoto" value="Photo : " />
-			<p:inputText id="idPhoto" value="#{categorieMB.categorie.photo}" />
-		</h:panelGrid>
-			<p:commandButton value="Modifier" action="#{categorieMB.modifierCategorie}" update="@all">  </p:commandButton>
-			<h:messages color="red"/>
-</h:form>
 </h:body>
 </html>
