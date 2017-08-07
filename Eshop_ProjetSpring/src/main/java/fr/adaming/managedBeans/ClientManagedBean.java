@@ -77,7 +77,7 @@ public class ClientManagedBean implements Serializable {
 	}
 	
 	public String rechercherClient(){
-		clientService.consulterParId(this.client.getIdClient());
+		this.client=clientService.consulterParId(this.client.getIdClient());
 		this.lClients = clientService.consulterTout();
 		return "index";
 	}

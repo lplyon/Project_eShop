@@ -77,7 +77,7 @@ public class ProduitManagedBean {
 	}
 	
 	public String rechercherProduit(){
-		produitService.consulterParId(this.produit.getIdProduit());
+		this.produit=produitService.consulterParId(this.produit.getIdProduit());
 		this.lProduits=produitService.consulterTout();
 		return "rechercheProduits";
 	}

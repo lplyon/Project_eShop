@@ -83,7 +83,7 @@ public class CommandeManagedBean implements Serializable{
 	}
 	
 	public String rechercherCommande(){
-		comService.consulterParId(this.commande.getIdCommande());
+		this.commande=comService.consulterParId(this.commande.getIdCommande());
 		this.lCommandes=comService.consulterTout();
 		return"listeCommande";
 	}

@@ -77,7 +77,7 @@ public class CategorieManagedBean implements Serializable {
 	}
 
 	public String rechercherCategorie() {
-		categorieService.consulterParId(this.categorie.getIdCategorie());
+		this.categorie=categorieService.consulterParId(this.categorie.getIdCategorie());
 		return "rechercheCategorie";
 	}
 
