@@ -10,15 +10,16 @@
 	<title>Gestion des catégories</title>
 </h:head>
 
-<h:body style="background-color:#5F3E3E;">
+<h:body style="background-color:#5F3E3E; text-align:center;color:white" >
 
 	<ui:insert name="header">
 		<ui:include src="/templates/headerTemplate.xhtml"></ui:include>
 	</ui:insert>
 
-
+<h1> Formulaire d'ajout</h1>
 <h:form>
-		<h:panelGrid columns="2" cellpadding="5" >
+<center>
+		<h:panelGrid columns="2" cellpadding="5"  >
 			<p:outputLabel for="idDescription" value="Description: " />
 			<p:inputText id="idDescription" value="#{categorieMB.categorie.description}" />
 			<p:outputLabel for="idNomCategorie" value="Nom : " />
@@ -27,12 +28,18 @@
 			<p:inputText id="idPhoto" value="#{categorieMB.categorie.photo}"/>
 			  
 		</h:panelGrid>
-
+</center>
 			<p:commandButton value="ajouter" action="#{categorieMB.ajouterCategorie}" update="@all">  </p:commandButton>
 			<h:messages color="red"/>
 </h:form>
+<br/>
+<br/>
+
+<p:separator/>
 
 <h1> Liste des catégories</h1>
+<br/>
+<br/>
 <p:dataTable var="categorie" value="#{categorieMB.lCategories}" style="margin:100px">
 	<p:column headerText="ID">
 			<h:outputText value="#{categorie.idCategorie}" />
