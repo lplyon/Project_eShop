@@ -10,30 +10,75 @@
 	<title>Page gestion produit</title>
 </h:head>
 
-<h:body  style="background-color:#5F3E3E;text-align:center;color:white">
+<h:body style="background-color:#5F3E3E;text-align:center;color:white">
 
 	<ui:insert name="header">
 		<ui:include src="/templates/headerTemplate.xhtml"></ui:include>
 	</ui:insert>
 
 	<h1>Ajoutez votre produit :</h1>
-		<p:separator/>
+	<p:separator />
 
-<center> 
-<h:form> 
-		<h:panelGrid columns="2" cellpadding="5" style="margin:20px">
-			<p:outputLabel for="idDesignation" value="Designation : " />
-			<p:inputText id="idDesignation" value="#{produitMB.produit.designation}" />
-			<p:outputLabel for="idDescription" value="Description : " />
-			<p:inputText id="idDescription" value="#{produitMB.produit.description}" />
-			<p:outputLabel for="idPrix" value="Prix : " />
-			<p:inputText id="idPrix" value="#{produitMB.produit.prix}" />
-			<p:outputLabel for="idQuantite" value="Quantité : " />
-			<p:inputText id="idQuantite" value="#{produitMB.produit.quantite}" />
+	<center>
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="5" style="margin:20px">
+				<p:outputLabel for="idDesignation" value="Designation : " />
+				<p:inputText id="idDesignation"
+					value="#{produitMB.produit.designation}" />
+				<p:outputLabel for="idDescription" value="Description : " />
+				<p:inputText id="idDescription"
+					value="#{produitMB.produit.description}" />
+				<p:outputLabel for="idPrix" value="Prix : " />
+				<p:inputText id="idPrix" value="#{produitMB.produit.prix}" />
+				<p:outputLabel for="idQuantite" value="Quantité : " />
+				<p:inputText id="idQuantite" value="#{produitMB.produit.quantite}" />
 			</h:panelGrid>
-			<p:commandButton value="Sauvegarder" action="#{produitMB.ajouterProduit}"/>
-</h:form>
-</center>
+			<p:commandButton value="Sauvegarder"
+				action="#{produitMB.ajouterProduit}" update="@all" />
+		</h:form>
+		<br /> <br />
+
+		<p:separator />
+
+		<h2>Liste des produits</h2>
+
+
+		<p:dataTable var="categorie" value="#{produitMB.lProduits}"
+			style="margin:50px">
+			<p:column headerText="ID">
+				<h:outputText value="#{produitMB.produit.idProduit}" />
+			</p:column>
+			<p:column headerText="Designation">
+				<h:outputText value="#{produitMB.produit.designation}" />
+			</p:column>
+			<p:column headerText="Description">
+				<h:outputText value="#{{produitMB.produit.description}" />
+			</p:column>
+			<p:column headerText="Prix">
+				<h:outputText value="#{produitMB.produit.prix}" />
+				<p:column headerText="Quantité">
+					<h:outputText value="#{produitMB.produit.quantite}" />
+
+				</p:column>
+				<p:column headerText="Action">
+					<h:form>
+						<p:commandButton value="Modifier"
+							action="#{produitMB.accesModifierProduit(produit.idProduit)}"
+							update="@all"></p:commandButton>
+					</h:form>
+				</p:column>
+				<p:column headerText="Action">
+					<h:form>
+						<p:commandButton value="Supprimer"
+							action="#{produitMB.supprimerProduit}" update="@all">
+							<f:setPropertyActionListener value="#{produit.idProduit}"
+								target="#{produitMB.produit.idProduit}" />
+						</p:commandButton>
+					</h:form>
+				</p:column>
+		</p:dataTable>
+
+	</center>
 
 </h:body>
 </html>

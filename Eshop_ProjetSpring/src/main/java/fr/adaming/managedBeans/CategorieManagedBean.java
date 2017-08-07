@@ -13,7 +13,7 @@ import fr.adaming.model.Categorie;
 import fr.adaming.service.IGeneriqueService;
 
 @ManagedBean(name = "categorieMB")
-@ViewScoped
+@RequestScoped
 public class CategorieManagedBean implements Serializable {
 
 	// attributs
@@ -32,14 +32,13 @@ public class CategorieManagedBean implements Serializable {
 	public void setCategorieService(IGeneriqueService<Categorie> categorieService) {
 		this.categorieService = categorieService;
 	}
-	
-	//Méthode exécutée après instanciation du managed bean
+
+	// Méthode exécutée après instanciation du managed bean
 	@PostConstruct
-	public void init(){
+	public void init() {
 		this.lCategories = categorieService.consulterTout();
 	}
-	
-	
+
 	// getters et setters
 	public Categorie getCategorie() {
 		return categorie;
@@ -57,13 +56,20 @@ public class CategorieManagedBean implements Serializable {
 		this.lCategories = lCategories;
 	}
 
-	//méthodes services
+	// méthodes services
 	public String ajouterCategorie() {
 		categorieService.ajouter(this.categorie);
 		this.lCategories = categorieService.consulterTout();
 		return "listeCategorie";
 	}
 
+	// redirection du tableau de la liste vers la page modifier
+	public String accesModifierCategorie(Long id) {
+		this.categorie = categorieService.consulterParId(id);
+		return "modifCategorie";
+	}
+
+	// méthode modifier
 	public String modifierCategorie() {
 		categorieService.modifier(this.categorie);
 		this.lCategories = categorieService.consulterTout();
@@ -77,7 +83,7 @@ public class CategorieManagedBean implements Serializable {
 	}
 
 	public String rechercherCategorie() {
-		this.categorie=categorieService.consulterParId(this.categorie.getIdCategorie());
+		this.categorie = categorieService.consulterParId(this.categorie.getIdCategorie());
 		return "rechercheCategorie";
 	}
 

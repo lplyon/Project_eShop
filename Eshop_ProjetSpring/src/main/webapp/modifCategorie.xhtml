@@ -15,26 +15,32 @@
 	<ui:insert name="header">
 		<ui:include src="/templates/headerTemplate.xhtml"></ui:include>
 	</ui:insert>
-	
-	<h1>Modifier votre cathégorie :</h1>
-	
-	<p:separator/> 
+
+	<h1>Modifier votre catégorie :</h1>
+
+	<p:separator />
 
 	<center>
 		<h:form>
 			<h:panelGrid columns="2" cellpadding="4">
 				<p:outputLabel for="id" value="ID: " />
-				<p:inputText id="id" value="#{categorieMB.categorie.idCategorie}" />
+				<p:inputText id="id" value="#{categorieMB.categorie.idCategorie}"
+					placeholder="ID"/>
+
 				<p:outputLabel for="idDescription" value="Description: " />
 				<p:inputText id="idDescription"
-					value="#{categorieMB.categorie.description}" />
+					value="#{categorieMB.categorie.description}"
+					placeholder="Description" />
+
 				<p:outputLabel for="idNomCategorie" value="Nom : " />
 				<p:inputText id="idNomCategorie"
-					value="#{categorieMB.categorie.nomCategorie}" />
+					value="#{categorieMB.categorie.nomCategorie}"
+					placeholder="Nom" />
+
 				<p:outputLabel for="idPhoto" value="Photo : " />
-				<p:inputText id="idPhoto" value="#{categorieMB.categorie.photo}" />
+				<p:inputText id="idPhoto" value="#{categorieMB.categorie.photo}" placeholder="Photo"/>
 			</h:panelGrid>
-			<br/>
+			<br />
 			<p:commandButton value="Modifier"
 				action="#{categorieMB.modifierCategorie}" update="@all">
 			</p:commandButton>

@@ -30,7 +30,7 @@
 			  
 		</h:panelGrid>
 </center>
-			<p:commandButton value="ajouter" action="#{categorieMB.ajouterCategorie}" update="@all">  </p:commandButton>
+			<p:commandButton value="ajouter" action="#{categorieMB.ajouterCategorie}" update="@all"/>
 			<h:messages color="red"/>
 </h:form>
 <br/>
@@ -58,8 +58,7 @@
 		</p:column>
 		<p:column headerText="Action">
 			<h:form>
-			<p:commandButton value="Modifier" action ="modifCategorie" update="@all">
-</p:commandButton> 
+			<p:commandButton value="Modifier" action ="#{categorieMB.accesModifierCategorie(categorie.idCategorie)}" update="@all"></p:commandButton> 
 			</h:form>
 		</p:column>
 		<p:column headerText="Action">

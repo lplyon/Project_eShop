@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Page index</title>
+</h:head>
+
+<h:body style="background-color:#5F3E3E;text-align:center;color:white">
+
+	<ui:insert name="header">
+		<ui:include src="/templates/headerTemplate.xhtml"></ui:include>
+	</ui:insert>
+
+	<h1>Modifiez votre produit :</h1>
+
+	<p:separator />
+
+	<center>
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="4">
+				<p:outputLabel for="id" value="ID: " />
+				<p:inputText id="id" value="#{produitMB.produit.idProduit}"
+					placeholder="ID" />
+
+				<p:outputLabel for="idDesignation" value="Designation : " />
+				<p:inputText id="idDesignation"
+					value="#{produitMB.produit.designation}" placeholder="Désignation" />
+				<p:outputLabel for="idDescription" value="Description : " />
+				<p:inputText id="idDescription"
+					value="#{produitMB.produit.description}" placeholder="Description" />
+				<p:outputLabel for="idPrix" value="Prix : " />
+				<p:inputText id="idPrix" value="#{produitMB.produit.prix}"
+					placeholder="Prix" />
+				<p:outputLabel for="idQuantite" value="Quantité : " />
+				<p:inputText id="idQuantite" value="#{produitMB.produit.quantite}"
+					placeholder="Quantité" />
+			</h:panelGrid>
+			<br />
+			<p:commandButton value="Modifier"
+				action="#{produitMB.modifierProduit}" update="@all">
+			</p:commandButton>
+			<h:messages color="red" />
+		</h:form>
+	</center>
+
+</h:body>
+</html>

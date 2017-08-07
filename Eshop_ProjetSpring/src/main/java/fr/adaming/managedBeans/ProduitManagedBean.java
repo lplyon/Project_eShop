@@ -64,11 +64,20 @@ public class ProduitManagedBean {
 		return "listeProduits";
 	}
 	
+	// redirection du tableau de la liste vers la page modifierProduit
+	public String accesModifierProduit(Long id){
+		this.produit = produitService.consulterParId(id);
+		
+		return "modifProduit";
+	}
+	
+	// modif produit
 	public String modifierProduit(){
 		produitService.modifier(this.produit);
-		this.lProduits=produitService.consulterTout();
-		return "listeProduits";
+		this.lProduits = produitService.consulterTout();
+		return "gestionProduits";
 	}
+	
 	
 	public String supprimerProduit(){
 		produitService.supprimer(this.produit.getIdProduit());
