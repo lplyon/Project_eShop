@@ -58,8 +58,8 @@
 		<p:column headerText="Action">
 			<h:form>
 			<p:commandButton value="Supprimer" action ="#{categorieMB.supprimerCategorie}" update="@all">
-			<f:setPropertyActionListener value="#{categorie.idCategorie}" target="#{categorieMB.categorie.idCategorie}" >
-</p:commandButton> 
+			<f:setPropertyActionListener value="#{categorie.idCategorie}" target="#{categorieMB.categorie.idCategorie}" />
+			</p:commandButton> 
 			</h:form>
 		</p:column>
 	</p:dataTable>
