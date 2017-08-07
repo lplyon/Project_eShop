@@ -61,7 +61,7 @@ public class ProduitManagedBean {
 	public String ajouterProduit(){
 		produitService.ajouter(this.produit);
 		this.lProduits=produitService.consulterTout();
-		return "listeProduits";
+		return "gestionProduits";
 	}
 	
 	// redirection du tableau de la liste vers la page modifierProduit

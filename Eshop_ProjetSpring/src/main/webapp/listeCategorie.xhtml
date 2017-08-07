@@ -10,39 +10,42 @@
 	<title>Gestion des catégories</title>
 </h:head>
 
-<h:body style="background-color:#5F3E3E; text-align:center;color:white" >
+<h:body style="background-color:#5F3E3E; text-align:center;color:white">
 
 	<ui:insert name="header">
 		<ui:include src="/templates/headerTemplate.xhtml"></ui:include>
 	</ui:insert>
 
-<h1> Formulaire d'ajout</h1>
-<p:separator/>
-<h:form>
-<center>
-		<h:panelGrid columns="2" cellpadding="5"  >
-			<p:outputLabel for="idDescription" value="Description: " />
-			<p:inputText id="idDescription" value="#{categorieMB.categorie.description}" />
-			<p:outputLabel for="idNomCategorie" value="Nom : " />
-			<p:inputText id="idNomCategorie" value="#{categorieMB.categorie.nomCategorie}" />
-			<p:outputLabel for="idPhoto" value="Photo : " />
-			<p:inputText id="idPhoto" value="#{categorieMB.categorie.photo}"/>
-			  
-		</h:panelGrid>
-</center>
-			<p:commandButton value="ajouter" action="#{categorieMB.ajouterCategorie}" update="@all"/>
-			<h:messages color="red"/>
-</h:form>
-<br/>
-<br/>
-
-<p:separator/>
-
-<h2> Liste des catégories</h2>
+	<h1>Formulaire d'ajout</h1>
+	<p:separator />
+	<h:form>
+		<center>
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel for="idDescription" value="Description: " />
+				<p:inputText id="idDescription"
+					value="#{categorieMB.categorie.description}" />
+				<p:outputLabel for="idNomCategorie" value="Nom : " />
+				<p:inputText id="idNomCategorie"
+					value="#{categorieMB.categorie.nomCategorie}" />
 
 
-<p:dataTable var="categorie" value="#{categorieMB.lCategories}" style="margin:50px">
-	<p:column headerText="ID">
+			</h:panelGrid>
+		</center>
+		<p:commandButton value="ajouter"
+			action="#{categorieMB.ajouterCategorie}" update="@all" />
+		<h:messages color="red" />
+	</h:form>
+	<br />
+	<br />
+
+	<p:separator />
+
+	<h2>Liste des catégories</h2>
+
+
+	<p:dataTable var="categorie" value="#{categorieMB.lCategories}"
+		style="margin:50px">
+		<p:column headerText="ID">
 			<h:outputText value="#{categorie.idCategorie}" />
 		</p:column>
 		<p:column headerText="Description">
@@ -51,21 +54,20 @@
 		<p:column headerText="Nom">
 			<h:outputText value="#{categorie.nomCategorie}" />
 		</p:column>
-
-		<p:column headerText="Photo">
-			<h:outputText value="#{categorie.photo}" />
-			
-		</p:column>
 		<p:column headerText="Action">
 			<h:form>
-			<p:commandButton value="Modifier" action ="#{categorieMB.accesModifierCategorie(categorie.idCategorie)}" update="@all"></p:commandButton> 
+				<p:commandButton value="Modifier"
+					action="#{categorieMB.accesModifierCategorie(categorie.idCategorie)}"
+					update="@all"></p:commandButton>
 			</h:form>
 		</p:column>
 		<p:column headerText="Action">
 			<h:form>
-			<p:commandButton value="Supprimer" action ="#{categorieMB.supprimerCategorie}" update="@all">
-			<f:setPropertyActionListener value="#{categorie.idCategorie}" target="#{categorieMB.categorie.idCategorie}" />
-			</p:commandButton> 
+				<p:commandButton value="Supprimer"
+					action="#{categorieMB.supprimerCategorie}" update="@all">
+					<f:setPropertyActionListener value="#{categorie.idCategorie}"
+						target="#{categorieMB.categorie.idCategorie}" />
+				</p:commandButton>
 			</h:form>
 		</p:column>
 	</p:dataTable>
