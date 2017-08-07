@@ -7,18 +7,21 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Page index</title>
+	<title>Page gestion produit</title>
 </h:head>
 
-<h:body style="background-color:#5F3E3E;">
+<h:body  style="background-color:#5F3E3E;text-align:center;color:white">
 
 	<ui:insert name="header">
 		<ui:include src="/templates/headerTemplate.xhtml"></ui:include>
 	</ui:insert>
 
+	<h1>Ajoutez votre produit :</h1>
+		<p:separator/>
 
+<center> 
 <h:form>
-		<h:panelGrid columns="2" cellpadding="5" style="margin:100px">
+		<h:panelGrid columns="2" cellpadding="5" style="margin:20px">
 			<p:outputLabel for="idDesignation" value="Designation : " />
 			<p:inputText id="idDesignation" value="#{produitMB.produit.designation}" />
 			<p:outputLabel for="idDescription" value="Description : " />
@@ -30,6 +33,7 @@
 			</h:panelGrid>
 			<p:commandButton value="Sauvegarder" action="#{produitMB.ajouterProduit}"/>
 </h:form>
+</center>
 
 </h:body>
 </html>

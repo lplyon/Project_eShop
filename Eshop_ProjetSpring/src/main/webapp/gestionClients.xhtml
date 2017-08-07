@@ -7,30 +7,37 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Page index</title>
+	<title>Page gestion client</title>
 </h:head>
 
-<h:body>
+<h:body style="background-color:#5F3E3E;text-align:center;color:white">
 
 	<ui:insert name="header">
 		<ui:include src="/templates/headerTemplate.xhtml"></ui:include>
 	</ui:insert>
 
-	
+	<h1>Ajoutez votre client :</h1>
+		<p:separator/>
+	<br />
 
-<h:form>
-		<h:panelGrid columns="2" cellpadding="5">
-			<p:outputLabel for="idNom" value="Nom : " />
-			<p:inputText id="idNom" value="#{client.nomClient}" />
-			<p:outputLabel for="idAdresse" value="Adresse : " />
-			<p:inputText id="idAdresse" value="#{client.adresse}" />
-			<p:outputLabel for="idMail" value="Mail : " />
-			<p:inputText id="idMail" value="#{client.mail}" />
-			<p:outputLabel for="idTel" value="Tel : " />
-			<p:inputText id="idTel" value="#{client.tel}" />
+	<center>
+		<h:form>
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel for="idNom" value="Nom : " />
+				<p:inputText id="idNom" value="#{client.nomClient}" />
+				<p:outputLabel for="idAdresse" value="Adresse : " />
+				<p:inputText id="idAdresse" value="#{client.adresse}" />
+				<p:outputLabel for="idMail" value="Mail : " />
+				<p:inputText id="idMail" value="#{client.mail}" />
+				<p:outputLabel for="idTel" value="Tel : " />
+				<p:inputText id="idTel" value="#{client.tel}" />
 			</h:panelGrid>
-			<p:commandButton value="Sauvegarder" action="#{clientMB.ajouterClient}"/>
-</h:form>
+			<br />
+			<br />
+			<p:commandButton value="Sauvegarder"
+				action="#{clientMB.ajouterClient}" />
+		</h:form>
+	</center>
 
 </h:body>
 </html>
