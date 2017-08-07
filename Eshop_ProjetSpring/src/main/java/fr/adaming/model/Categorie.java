@@ -64,7 +64,7 @@ public class Categorie {
 	public void setNomCategorie(String nomCategorie) {
 		this.nomCategorie = nomCategorie;
 	}
-
+	
 	public byte getPhoto() {
 		return photo;
 	}

@@ -58,7 +58,7 @@
 			<h:form>
 			<p:commandButton value="Supprimer" action ="#{categorieMB.supprimerCategorie}" update="@all">
 			<f:setPropertyActionListener value="#{categorie.idCategorie}" target="#{categorieMB.categorie.idCategorie}" />
-			<p:ajax event="change" listener="#{categorieMB.categorie}" update="categorie"/></p:commandButton>
+			<p:ajax event="change" listener="#{categorieMB.categorie.idCategorie}" update="categorie"/></p:commandButton>
 			</h:form>
 		</p:column>
 	</p:dataTable>
