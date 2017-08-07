@@ -50,14 +50,14 @@
 		</p:column>
 		<p:column headerText="Action">
 			<h:form>
-			<p:commandButton value="Modifier" action ="#{categorieMB.modifierCategorie}" update="@all">
-			<f:setPropertyActionListener value="#{categorie.idCategorie}" target="#{categorieMB.categorie.idCategorie}" /></p:commandButton>
+			<p:commandButton value="Modifier" action ="#{categorieMB.modifierCategorie}" update="@all"/>
+<!-- 			<f:setPropertyActionListener value="#{categorie.idCategorie}" target="#{categorieMB.categorie.idCategorie}" /></p:commandButton> -->
 			</h:form>
 		</p:column>
 		<p:column headerText="Action">
 			<h:form>
 			<p:commandButton value="Supprimer" action ="#{categorieMB.supprimerCategorie}" update="@all">
-<!-- 			<f:setPropertyActionListener value="#{categorie.idCategorie}" target="#{categorieMB.categorie.idCategorie}" /> -->
+			<f:setPropertyActionListener value="#{categorie.idCategorie}" target="#{categorieMB.categorie.idCategorie}" />
 <!-- 			<p:ajax event="change" listener="#{categorieMB.categorie.idCategorie}" update="categorie"/></p:commandButton> -->
 			</h:form>
 		</p:column>
