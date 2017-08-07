@@ -21,13 +21,13 @@
 <h:form>
 		<h:panelGrid columns="2" cellpadding="5">
 			<p:outputLabel for="idNom" value="Nom : " />
-			<p:inputText id="idNom" value="#{clientMB.client.nomClient}" />
+			<p:inputText id="idNom" value="#{client.nomClient}" />
 			<p:outputLabel for="idAdresse" value="Adresse : " />
-			<p:inputText id="idAdresse" value="#{clientMB.client.adresse}" />
+			<p:inputText id="idAdresse" value="#{client.adresse}" />
 			<p:outputLabel for="idMail" value="Mail : " />
-			<p:inputText id="idMail" value="#{clientMB.client.mail}" />
+			<p:inputText id="idMail" value="#{.client.mail}" />
 			<p:outputLabel for="idTel" value="Tel : " />
-			<p:inputText id="idTel" value="#{clientMB.client.tel}" />
+			<p:inputText id="idTel" value="#{client.tel}" />
 			</h:panelGrid>
 			<p:commandButton value="Sauvegarder" action="#{clientMB.ajouterClient}"/>
 </h:form>
