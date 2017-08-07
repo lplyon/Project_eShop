@@ -15,8 +15,9 @@
 	<ui:insert name="header">
 		<ui:include src="/templates/headerTemplate.xhtml"></ui:include>
 	</ui:insert>
-
+<p:separator/>
 <h1> Formulaire d'ajout</h1>
+<p:separator/>
 <h:form>
 <center>
 		<h:panelGrid columns="2" cellpadding="5"  >
@@ -38,8 +39,8 @@
 <p:separator/>
 
 <h1> Liste des catégories</h1>
-<br/>
-<br/>
+<p:separator/>
+
 <p:dataTable var="categorie" value="#{categorieMB.lCategories}" style="margin:100px">
 	<p:column headerText="ID">
 			<h:outputText value="#{categorie.idCategorie}" />
