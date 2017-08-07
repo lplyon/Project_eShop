@@ -4,6 +4,11 @@ import java.util.List;
 
 import fr.adaming.model.LigneCommande;
 
+/**
+ * Interface Service LigneCommande
+ * @author Semi-Croustillant
+ *
+ */
 public interface ILigneCommandeService {
 	
 	public void ajouter(LigneCommande ligneCommande);

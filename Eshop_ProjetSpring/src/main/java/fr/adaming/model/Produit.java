@@ -34,8 +34,6 @@ public class Produit {
 	private String description;
 	private double prix;
 	private int quantite;
-	@Column(nullable = false, columnDefinition = "TINYINT", length = 1)
-	private boolean selectionne;
 
 	@ManyToOne
 	@JoinColumn(name = "fk_categorie", referencedColumnName = "idCategorie")
@@ -59,17 +57,14 @@ public class Produit {
 	 * @param description
 	 * @param prix
 	 * @param quantite
-	 * @param selectionne
 	 */
-	public Produit(Long idProduit, String designation, String description, double prix, int quantite,
-			boolean selectionne) {
+	public Produit(Long idProduit, String designation, String description, double prix, int quantite) {
 		super();
 		this.idProduit = idProduit;
 		this.designation = designation;
 		this.description = description;
 		this.prix = prix;
 		this.quantite = quantite;
-		this.selectionne = selectionne;
 	}
 
 	/**
@@ -79,15 +74,13 @@ public class Produit {
 	 * @param description
 	 * @param prix
 	 * @param quantite
-	 * @param selectionne
 	 */
-	public Produit(String designation, String description, double prix, int quantite, boolean selectionne) {
+	public Produit(String designation, String description, double prix, int quantite) {
 		super();
 		this.designation = designation;
 		this.description = description;
 		this.prix = prix;
 		this.quantite = quantite;
-		this.selectionne = selectionne;
 	}
 
 	// GETTER - SETTER
@@ -132,14 +125,6 @@ public class Produit {
 		this.quantite = quantite;
 	}
 
-	public boolean isSelectionne() {
-		return selectionne;
-	}
-
-	public void setSelectionne(boolean selectionne) {
-		this.selectionne = selectionne;
-	}
-
 	public Categorie getCategorie() {
 		return categorie;
 	}
@@ -162,8 +147,7 @@ public class Produit {
 		return "Produit [" + (idProduit != null ? "idProduit=" + idProduit + ", " : "")
 				+ (designation != null ? "designation=" + designation + ", " : "")
 				+ (description != null ? "description=" + description + ", " : "") + "prix=" + prix + ", quantite="
-				+ quantite + ", selectionne=" + selectionne + ", "
-				+ (categorie != null ? "categorie=" + categorie + ", " : "")
+				+ quantite + ", " + (categorie != null ? "categorie=" + categorie + ", " : "")
 				+ (lLignesCommandes != null ? "lLignesCommandes=" + lLignesCommandes : "") + "]";
 	}
 
