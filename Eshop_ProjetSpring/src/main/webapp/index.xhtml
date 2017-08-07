@@ -10,31 +10,35 @@
 	<title>Page index</title>
 </h:head>
 
-<h:body  style="background-color:#5F3E3E;text-align:center;color:white">
+<h:body style="background-color:#5F3E3E;text-align:center;color:white">
 
 	<ui:insert name="header">
 		<ui:include src="/templates/headerTemplate.xhtml"></ui:include>
 	</ui:insert>
 
+	<h1>Nos articles en vente :</h1>
+		<p:separator/>
 
-
-	<p:dataTable var="clients" value="#{clientMB.lClients}" style="margin:100px">
+	<p:dataTable var="pdt" value="#{produitMB.produit}"
+		style="margin:100px">
 		<p:column headerText="Nom">
-			<h:outputText value="#{clientMB.client.nomClient}" />
+			<h:outputText value="#{produitMB.produit.idProduit}" />
 		</p:column>
 
-		<p:column headerText="Adresse">
-			<h:outputText value="#{clientMB.client.adresse}" />
+		<p:column headerText="designation">
+			<h:outputText value="#{produitMB.produit.designation}" />
 		</p:column>
 
-		<p:column headerText="Mail">
-			<h:outputText value="#{clientMB.client.mail}" />
+		<p:column headerText="description">
+			<h:outputText value="#{produitMB.produit.description}" />
 		</p:column>
-		<p:column headerText="Tel">
-			<h:outputText value="#{clientMB.client.tel}" />
+		<p:column headerText="prix">
+			<h:outputText value="#{produitMB.produit.prix} €" />
+		</p:column>
+		<p:column headerText="quantite">
+			<h:outputText value="#{produitMB.produit.quantite}" />
 		</p:column>
 	</p:dataTable>
-
 
 
 
