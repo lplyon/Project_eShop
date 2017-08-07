@@ -10,6 +10,11 @@ import org.springframework.stereotype.Repository;
 
 import fr.adaming.model.LigneCommande;
 
+/**
+ * Class dao LigneCommande
+ * @author Semi-Croustillant
+ *
+ */
 @Repository
 public class LigneCommandeDaoImpl implements ILigneCommandeDao {
 
@@ -21,6 +26,10 @@ public class LigneCommandeDaoImpl implements ILigneCommandeDao {
 		this.sf = sf;
 	}
 
+	/**
+	 * ajoute une ligneCommande à la base de donnée
+	 * @param ligneCommande
+	 */
 	@Override
 	public void ajouter(LigneCommande ligneCommande) {
 
@@ -31,6 +40,9 @@ public class LigneCommandeDaoImpl implements ILigneCommandeDao {
 
 	}
 
+	/**
+	 * retourne la listes des ligneCommande de base de donnée
+	 */
 	@Override
 	public List<LigneCommande> consulterTout() {
 		
@@ -47,6 +59,10 @@ public class LigneCommandeDaoImpl implements ILigneCommandeDao {
 		return lLigneCommandes;
 	}
 
+	/**
+	 * Retourne une ligneCommande par son ID
+	 * @param id
+	 */
 	@Override
 	public LigneCommande consulterParId(int id) {
 
@@ -58,6 +74,10 @@ public class LigneCommandeDaoImpl implements ILigneCommandeDao {
 		return ligneCommande;
 	}
 
+	/**
+	 * modifie une ligneCommande dans la base de donnée
+	 * @param ligneCommande
+	 */
 	@Override
 	public void modifier(LigneCommande ligneCommande) {
 
@@ -68,6 +88,10 @@ public class LigneCommandeDaoImpl implements ILigneCommandeDao {
 
 	}
 
+	/**
+	 * supprimer un produit à l'aide de son id
+	 * @param id
+	 */
 	@Override
 	public void supprimer(int id) {
 		// Ouverture de la session (bus) avec la DB

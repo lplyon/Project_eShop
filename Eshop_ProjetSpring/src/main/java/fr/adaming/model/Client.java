@@ -10,6 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * Class model Client
+ * @author Semi-Croustillant
+ *
+ */
 @Entity
 @Table(name = "clients")
 public class Client {
@@ -26,12 +31,20 @@ public class Client {
 	@OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
 	private List<Commande> lcommandes;
 
-	// Constructeur vide
+	/**
+	 * Constructeur non-parametrique
+	 */
 	public Client() {
 		super();
 	}
 
-	// Constructeur sans id
+	/**
+	 * Constructeur sans ID
+	 * @param nomClient
+	 * @param adresse
+	 * @param mail
+	 * @param tel
+	 */
 	public Client(String nomClient, String adresse, String mail, String tel) {
 		super();
 		this.nomClient = nomClient;
@@ -40,7 +53,14 @@ public class Client {
 		this.tel = tel;
 	}
 
-	// Constructeur avec id
+	/**
+	 * Constructeur avec ID
+	 * @param idClient
+	 * @param nomClient
+	 * @param adresse
+	 * @param mail
+	 * @param tel
+	 */
 	public Client(Long idClient, String nomClient, String adresse, String mail, String tel) {
 		super();
 		this.idClient = idClient;

@@ -15,6 +15,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+/**
+ * Class model Commande
+ * @author Semi-Croustillant
+ *
+ */
 @Entity
 @Table(name = "commandes")
 public class Commande {
@@ -34,12 +39,19 @@ public class Commande {
 	@OneToMany(mappedBy = "commande", cascade = CascadeType.ALL)
 	private List<LigneCommande> lLignesCommandes;
 
-	// Constructeur vide
+	/**
+	 * Constructeur non-parametrique
+	 */
 	public Commande() {
 		super();
 	}
 
-	// Constructeur avec id
+	/**
+	 * Constructeur avec ID
+	 * @param idCommande
+	 * @param dateCommande
+	 * @param client
+	 */
 	public Commande(Long idCommande, Date dateCommande, Client client) {
 		super();
 		this.idCommande = idCommande;
@@ -47,7 +59,10 @@ public class Commande {
 
 	}
 
-	// Constructeur sans id
+	/**
+	 * Constructeur sans ID
+	 * @param dateCommande
+	 */
 	public Commande(Date dateCommande) {
 		super();
 		this.dateCommande = dateCommande;

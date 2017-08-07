@@ -10,6 +10,11 @@ import org.springframework.stereotype.Repository;
 
 import fr.adaming.model.Categorie;
 
+/**
+ * Class dao Categorie
+ * @author Semi-Croustillant
+ *
+ */
 @Repository
 public class CategorieDaoImpl implements IGeneriqueDao<Categorie> {
 
@@ -21,6 +26,10 @@ public class CategorieDaoImpl implements IGeneriqueDao<Categorie> {
 		this.sf = sf;
 	}
 
+	/**
+	 * ajoute une Categorie à la base de donnée
+	 * @param client
+	 */
 	@Override
 	public void ajouter(Categorie categorie) {
 
@@ -30,6 +39,9 @@ public class CategorieDaoImpl implements IGeneriqueDao<Categorie> {
 		s.save(categorie);
 	}
 
+	/**
+	 * retourne la liste des Categorie de base de donnée
+	 */
 	@Override
 	public List<Categorie> consulterTout() {
 
@@ -46,6 +58,10 @@ public class CategorieDaoImpl implements IGeneriqueDao<Categorie> {
 		return lCategories;
 	}
 
+	/**
+	 * Retourne une Categorie par son ID
+	 * @param id
+	 */
 	@Override
 	public Categorie consulterParId(Long id) {
 
@@ -57,6 +73,10 @@ public class CategorieDaoImpl implements IGeneriqueDao<Categorie> {
 		return categorie;
 	}
 
+	/**
+	 * modifie une Categorie dans la base de donnée
+	 * @param categorie
+	 */
 	@Override
 	public void modifier(Categorie categorie) {
 
@@ -65,6 +85,10 @@ public class CategorieDaoImpl implements IGeneriqueDao<Categorie> {
 		s.saveOrUpdate(categorie);
 	}
 
+	/**
+	 * supprimer un Categorie à l'aide de son id
+	 * @param id
+	 */
 	@Override
 	public void supprimer(Long id) {
 

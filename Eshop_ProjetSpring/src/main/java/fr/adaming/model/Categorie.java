@@ -10,6 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * 
+ * @author Semi-Croustillant
+ *
+ */
 @Entity
 @Table(name = "categories")
 public class Categorie {
@@ -25,12 +30,20 @@ public class Categorie {
 	@OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL)
 	private List<Produit> lProduits;
 
-	// Constructeur vide
+	/**
+	 * Constructeur non-parametrique
+	 */
 	public Categorie() {
 		super();
 	}
 
-	// Constructeur avec id
+	/**
+	 * Constructeur avec ID
+	 * @param idCategorie
+	 * @param nomCategorie
+	 * @param photo
+	 * @param description
+	 */
 	public Categorie(Long idCategorie, String nomCategorie, byte photo, String description) {
 		super();
 		this.idCategorie = idCategorie;
@@ -39,7 +52,12 @@ public class Categorie {
 		this.description = description;
 	}
 
-	// Constructeur sans id
+	/**
+	 * Constructeur sans ID
+	 * @param nomCategorie
+	 * @param photo
+	 * @param description
+	 */
 	public Categorie(String nomCategorie, byte photo, String description) {
 		super();
 		this.nomCategorie = nomCategorie;

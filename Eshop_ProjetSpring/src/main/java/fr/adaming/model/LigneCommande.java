@@ -8,6 +8,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * Class model LigneCommande
+ * @author Semi-Croustillant
+ *
+ */
 @Entity
 @Table(name = "lignesCommandes")
 public class LigneCommande {
@@ -27,12 +32,19 @@ public class LigneCommande {
 	@JoinColumn(name = "fk_commande", referencedColumnName = "idCommande")
 	private Commande commande;
 
-	// Constructeur vide
+	/**
+	 * Constructeur non-parametrique
+	 */
 	public LigneCommande() {
 		super();
 	}
 
-	// Constructeur avec id
+	/**
+	 * Constructeur avec ID
+	 * @param idLigneCommande
+	 * @param quantite
+	 * @param prix
+	 */
 	public LigneCommande(int idLigneCommande, int quantite, double prix) {
 		super();
 		this.idLigneCommande = idLigneCommande;
@@ -40,7 +52,11 @@ public class LigneCommande {
 		this.prix = prix;
 	}
 
-	// Constructeur sans id
+	/**
+	 * Constructeur sans ID
+	 * @param quantite
+	 * @param prix
+	 */
 	public LigneCommande(int quantite, double prix) {
 		super();
 		this.quantite = quantite;

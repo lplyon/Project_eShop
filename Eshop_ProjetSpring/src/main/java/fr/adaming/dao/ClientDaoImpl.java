@@ -10,6 +10,11 @@ import org.springframework.stereotype.Repository;
 
 import fr.adaming.model.Client;
 
+/**
+ * Class dao Client
+ * @author Semi-Croustillant
+ *
+ */
 @Repository
 public class ClientDaoImpl implements IGeneriqueDao<Client> {
 
@@ -21,6 +26,10 @@ public class ClientDaoImpl implements IGeneriqueDao<Client> {
 		this.sf = sf;
 	}
 
+	/**
+	 * ajoute un Client à la base de donnée
+	 * @param client
+	 */
 	@Override
 	public void ajouter(Client client) {
 
@@ -31,6 +40,9 @@ public class ClientDaoImpl implements IGeneriqueDao<Client> {
 
 	}
 
+	/**
+	 * retourne la liste des Clients de base de donnée
+	 */
 	@Override
 	public List<Client> consulterTout() {
 		// Ouverture de la session (bus) avec la DB
@@ -46,6 +58,10 @@ public class ClientDaoImpl implements IGeneriqueDao<Client> {
 		return lClients;
 	}
 
+	/**
+	 * Retourne un Client par son ID
+	 * @param id
+	 */
 	@Override
 	public Client consulterParId(Long id) {
 
@@ -57,6 +73,10 @@ public class ClientDaoImpl implements IGeneriqueDao<Client> {
 		return client;
 	}
 
+	/**
+	 * modifie un Client dans la base de donnée
+	 * @param ligneCommande
+	 */
 	@Override
 	public void modifier(Client client) {
 
@@ -67,6 +87,10 @@ public class ClientDaoImpl implements IGeneriqueDao<Client> {
 
 	}
 
+	/**
+	 * supprimer un Client à l'aide de son id
+	 * @param id
+	 */
 	@Override
 	public void supprimer(Long id) {
 

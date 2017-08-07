@@ -10,6 +10,11 @@ import org.springframework.stereotype.Repository;
 
 import fr.adaming.model.Commande;
 
+/**
+ * Class dao Commande
+ * @author Semi-Croustillant
+ *
+ */
 @Repository
 public class CommandeDaoImpl implements IGeneriqueDao<Commande> {
 
@@ -21,6 +26,10 @@ public class CommandeDaoImpl implements IGeneriqueDao<Commande> {
 		this.sf = sf;
 	}
 
+	/**
+	 * ajoute une commande à la base de donnée
+	 * @param commande
+	 */
 	@Override
 	public void ajouter(Commande commande) {
 		// Ouverture de la session (bus) avec la DB
@@ -30,6 +39,9 @@ public class CommandeDaoImpl implements IGeneriqueDao<Commande> {
 
 	}
 
+	/**
+	 * retourne la listes des Commande de base de donnée
+	 */
 	@Override
 	public List<Commande> consulterTout() {// Ouverture de la session (bus) avec
 											// la DB
@@ -45,6 +57,10 @@ public class CommandeDaoImpl implements IGeneriqueDao<Commande> {
 		return lCommandes;
 	}
 
+	/**
+	 * Retourne une Commande par son ID
+	 * @param id
+	 */
 	@Override
 	public Commande consulterParId(Long id) {
 		// Ouverture de la session (bus) avec la DB
@@ -55,6 +71,10 @@ public class CommandeDaoImpl implements IGeneriqueDao<Commande> {
 		return commande;
 	}
 
+	/**
+	 * modifie une commande dans la base de donnée
+	 * @param commande
+	 */
 	@Override
 	public void modifier(Commande commande) {
 		// Ouverture de la session (bus) avec la DB
@@ -64,6 +84,10 @@ public class CommandeDaoImpl implements IGeneriqueDao<Commande> {
 
 	}
 
+	/**
+	 * supprimer une Commande à l'aide de son id
+	 * @param id
+	 */
 	@Override
 	public void supprimer(Long id) {
 		// Ouverture de la session (bus) avec la DB

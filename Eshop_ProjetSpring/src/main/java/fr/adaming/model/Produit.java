@@ -16,6 +16,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * Classe model Produit
+ * @author Semi-Croustillant
+ *
+ */
 @Entity
 @Table(name = "produits")
 public class Produit {
@@ -39,12 +44,23 @@ public class Produit {
 	@OneToMany(mappedBy = "produit", cascade = CascadeType.ALL)
 	private List<LigneCommande> lLignesCommandes;
 
-	// Constructeur vide
+	/**
+	 * Constructeur non-parametrique
+	 */
 	public Produit() {
 		super();
 	}
 
-	// contructeur avec id
+	/**
+	 * Constructeur avec ID
+	 * @param idProduit
+	 * @param designation
+	 * @param description
+	 * @param prix
+	 * @param quantite
+	 * @param selectionne
+	 * @param photo
+	 */
 	public Produit(Long idProduit, String designation, String description, double prix, int quantite,
 			boolean selectionne, String photo) {
 		super();
@@ -57,7 +73,15 @@ public class Produit {
 		this.photo = photo;
 	}
 
-	// Constructeur sans id
+	/**
+	 * Constructeur sans ID
+	 * @param designation
+	 * @param description
+	 * @param prix
+	 * @param quantite
+	 * @param selectionne
+	 * @param photo
+	 */
 	public Produit(String designation, String description, double prix, int quantite, boolean selectionne,
 			String photo) {
 		super();
