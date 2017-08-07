@@ -10,7 +10,7 @@
 	<title>Page index</title>
 </h:head>
 
-<h:body>
+<h:body  style="background-color:#5F3E3E;">
 
 	<ui:insert name="header">
 		<ui:include src="/templates/headerTemplate.xhtml"></ui:include>
@@ -18,7 +18,7 @@
 
 
 
-	<p:dataTable var="clients" value="#{clientMB.lClients}">
+	<p:dataTable var="clients" value="#{clientMB.lClients}" style="margin:100px">
 		<p:column headerText="Nom">
 			<h:outputText value="#{clientMB.client.nomClient}" />
 		</p:column>

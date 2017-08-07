@@ -10,7 +10,7 @@
 	<title>Gestion des catégories</title>
 </h:head>
 
-<h:body>
+<h:body style="background-color:#5F3E3E;">
 
 	<ui:insert name="header">
 		<ui:include src="/templates/headerTemplate.xhtml"></ui:include>
@@ -18,7 +18,7 @@
 
 
 <h:form>
-		<h:panelGrid columns="2" cellpadding="5">
+		<h:panelGrid columns="2" cellpadding="5" >
 			<p:outputLabel for="idDescription" value="Description: " />
 			<p:inputText id="idDescription" value="#{categorieMB.categorie.description}" />
 			<p:outputLabel for="idNomCategorie" value="Nom : " />
@@ -33,7 +33,7 @@
 </h:form>
 
 <h1> Liste des catégories</h1>
-<p:dataTable var="categorie" value="#{categorieMB.lCategories}">
+<p:dataTable var="categorie" value="#{categorieMB.lCategories}" style="margin:100px">
 	<p:column headerText="ID">
 			<h:outputText value="#{categorie.idCategorie}" />
 		</p:column>
