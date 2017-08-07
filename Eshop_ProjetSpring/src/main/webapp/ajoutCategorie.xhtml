@@ -23,10 +23,9 @@
 			<p:inputText id="idDescription" value="#{categorieMB.categorie.description}" />
 			<p:outputLabel for="idNomCategorie" value="Nom : " />
 			<p:inputText id="idNomCategorie" value="#{categorieMB.categorie.nomCategorie}" />
-
-		  <h:outputLink id="idPhoto" value="#{categorieMB.categorie.photo}">  
-        <h:graphicImage  id="idPhoto" value="#{categorieMB.categorie.photo}"/>    
-    </h:outputLink>
+			<p:outputLabel for="idPhoto" value="Photo : " />
+			<p:inputText id="idPhoto" value="#{categorieMB.categorie.photo}"/>
+	
 		</h:panelGrid>
 
 			<p:commandButton value="ajouter" action="#{categorieMB.ajouterCategorie}" update="@all">  </p:commandButton>
