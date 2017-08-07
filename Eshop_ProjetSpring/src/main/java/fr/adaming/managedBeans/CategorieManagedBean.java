@@ -7,12 +7,13 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 
 import fr.adaming.model.Categorie;
 import fr.adaming.service.IGeneriqueService;
 
 @ManagedBean(name = "categorieMB")
-@RequestScoped
+@ViewScoped
 public class CategorieManagedBean implements Serializable {
 
 	// attributs
@@ -56,6 +57,7 @@ public class CategorieManagedBean implements Serializable {
 		this.lCategories = lCategories;
 	}
 
+	//méthodes services
 	public String ajouterCategorie() {
 		categorieService.ajouter(this.categorie);
 		this.lCategories = categorieService.consulterTout();

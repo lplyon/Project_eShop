@@ -6,13 +6,14 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 
 import fr.adaming.model.LigneCommande;
 import fr.adaming.service.IGeneriqueService;
 import fr.adaming.service.ILigneCommandeService;
 
 @ManagedBean(name="ligneCMB")
-@RequestScoped
+@ViewScoped
 public class LigneCommandeManagedBean {
 	
 	//attributs

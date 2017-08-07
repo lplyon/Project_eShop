@@ -7,12 +7,13 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 
 import fr.adaming.model.Commande;
 import fr.adaming.service.IGeneriqueService;
 
 @ManagedBean(name="commandeMB")
-@RequestScoped
+@ViewScoped
 public class CommandeManagedBean implements Serializable{
 
 	/**

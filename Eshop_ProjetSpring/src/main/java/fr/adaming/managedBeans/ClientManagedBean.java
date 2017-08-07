@@ -8,12 +8,13 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import fr.adaming.model.Client;
 import fr.adaming.service.IGeneriqueService;
 
 @ManagedBean(name = "clientMB")
-@RequestScoped
+@ViewScoped
 public class ClientManagedBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
