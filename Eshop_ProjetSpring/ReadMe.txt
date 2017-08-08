@@ -1,26 +1,20 @@
+Eshop_ProjetSpring
 
-NE PAS OUBLIER 
-la configuration du projet web dynamique
-le .properties
-le application-context.xml
+C'est un eshop de vente de jeux
 
-ETAPES 
- -faire model + ajout des annotations + jointures
- -faire DAO
- -faire Service
- -faire web.xml
- -faire view
+ETAPES :
 
+ -configurer le pom.xml+ ajout des dépendences
+ -configuration du web.xml
+ -configuuration du faces-config.xml
+ -Couche model : création des POJOS, ajout des annotations et des associations, création des tables de jointures
+ -Couche DAO : création de l'interface générique et des méthodes du CRUD pour tous les objets
+ -Couche Service: création des méthodes services
+ -Couche view : création des managed beans pour la vue
+ -Couche web: création des pages pour la gestion des catégories et des produits, des commandes
 
-TO DO List
-DAO : Produit :
-	@Override
-	public List<Produit> consulterSelection(int idClient) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
-	Mettre hb.auto=create en validate
-
-
+TECHNOLOGIES UTILISEES:
+ -Maven
+ -Spring IoC
+ -Hibernate
+ -JSF
