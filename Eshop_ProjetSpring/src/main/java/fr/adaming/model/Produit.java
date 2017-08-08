@@ -57,14 +57,17 @@ public class Produit {
 	 * @param description
 	 * @param prix
 	 * @param quantite
+	 * @param categorie
 	 */
-	public Produit(Long idProduit, String designation, String description, double prix, int quantite) {
+	public Produit(Long idProduit, String designation, String description, double prix, int quantite,
+			Categorie categorie) {
 		super();
 		this.idProduit = idProduit;
 		this.designation = designation;
 		this.description = description;
 		this.prix = prix;
 		this.quantite = quantite;
+		this.categorie = categorie;
 	}
 
 	/**
@@ -74,14 +77,18 @@ public class Produit {
 	 * @param description
 	 * @param prix
 	 * @param quantite
+	 * @param categorie
 	 */
-	public Produit(String designation, String description, double prix, int quantite) {
+	public Produit(String designation, String description, double prix, int quantite, Categorie categorie) {
 		super();
 		this.designation = designation;
 		this.description = description;
 		this.prix = prix;
 		this.quantite = quantite;
+		this.categorie = categorie;
 	}
+
+	
 
 	// GETTER - SETTER
 

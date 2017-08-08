@@ -13,7 +13,7 @@ import fr.adaming.service.IGeneriqueService;
 import fr.adaming.service.IProduitService;
 
 @ManagedBean(name="produitMB")
-@ViewScoped
+@RequestScoped
 public class ProduitManagedBean {
 	//attributs
 	private Produit produit;
